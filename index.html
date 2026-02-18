@@ -4,12 +4,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Elevare Perinatal Care</title>
-  <!-- Link to external CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- Navigation Bar -->
+  <!-- Hamburger Menu for Mobile -->
+  <div class="hamburger" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
   <nav class="main-nav">
     <a href="#about">About</a>
     <a href="#services">Services</a>
@@ -18,6 +23,15 @@
     <a href="#faq">FAQ</a>
     <a href="#contact">Contact</a>
   </nav>
+
+  <div class="nav-dropdown" id="dropdownNav">
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#why">Why RN Care</a>
+    <a href="#testimonials">Testimonials</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contact">Contact</a>
+  </div>
 
   <!-- Hero Section -->
   <header>
@@ -94,10 +108,11 @@
     <p>Email: <a href="mailto:info@elevareperinatal.com">info@elevareperinatal.com</a></p>
   </footer>
 
-  <!-- Active Section Highlight JS -->
+  <!-- Active Section Highlight JS + Hamburger -->
   <script>
     const navLinks = document.querySelectorAll('nav.main-nav a');
     const sections = document.querySelectorAll('section');
+    const dropdown = document.getElementById('dropdownNav');
 
     function updateActiveLink() {
       let scrollPos = window.scrollY + window.innerHeight / 3;
@@ -111,6 +126,10 @@
           });
         }
       });
+    }
+
+    function toggleMenu() {
+      dropdown.classList.toggle('show');
     }
 
     window.addEventListener('scroll', updateActiveLink);

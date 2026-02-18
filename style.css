@@ -37,17 +37,18 @@ nav.main-nav a {
   font-weight: 600;
   color: #333;
   position: relative;
-  padding: 5px 0;
+  padding: 8px 15px; /* added padding for wider highlight */
   transition: all 0.3s ease;
+  border-radius: 5px;
 }
 
-/* underline + seafoam highlight on hover/active */
+/* underline + seafoam background on hover/active */
 nav.main-nav a::after {
   content: '';
   position: absolute;
-  left: 0;
+  left: 10%;
   bottom: 0;
-  width: 0%;
+  width: 80%;
   height: 3px;
   background-color: #3caea3;
   transition: width 0.3s ease;
@@ -55,12 +56,43 @@ nav.main-nav a::after {
 
 nav.main-nav a:hover::after,
 nav.main-nav a.active::after {
-  width: 100%;
+  width: 80%;
 }
 
 nav.main-nav a.active {
   background-color: #d6f0e1;
-  border-radius: 5px;
+}
+
+/* Hamburger Menu Icon */
+.hamburger {
+  display: none;
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 28px;
+  height: 20px;
+}
+
+.hamburger span {
+  display: block;
+  height: 3px;
+  background-color: #333;
+  border-radius: 2px;
+}
+
+/* Dropdown for mobile nav */
+.nav-dropdown {
+  display: none;
+  flex-direction: column;
+  text-align: center;
+  width: 100%;
+  background-color: #ffffffcc;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.nav-dropdown a {
+  margin: 10px 0;
+  padding: 10px;
 }
 
 /* =========================
@@ -70,7 +102,7 @@ header {
   background-color: #d6f0e1;
   color: #333;
   text-align: center;
-  padding: 120px 20px 100px 20px;
+  padding: 160px 20px 120px 20px; /* added top spacing */
   position: relative;
 }
 
@@ -108,7 +140,7 @@ header p {
    Sections
 ========================= */
 section {
-  padding: 60px 20px;
+  padding: 80px 20px; /* added top/bottom spacing */
   max-width: 800px;
   margin: 0 auto;
   border-radius: 10px;
@@ -198,12 +230,16 @@ footer {
 ========================= */
 @media (max-width: 768px) {
   nav.main-nav {
-    flex-direction: column;
-    align-items: center;
+    display: none;
   }
 
-  nav.main-nav a {
-    margin: 10px 0;
+  .hamburger {
+    display: flex;
+    margin: 15px;
+  }
+
+  .nav-dropdown.show {
+    display: flex;
   }
 
   header h1 {
