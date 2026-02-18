@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Elevare Perinatal Care</title>
+  <!-- Link to external CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="main-nav">
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#why">Why RN Care</a>
+    <a href="#testimonials">Testimonials</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <!-- Hero Section -->
+  <header>
+    <h1>Elevare Perinatal Care</h1>
+    <p>Thoughtful, expert nursing care for pregnancy & postpartum</p>
+    <a href="#contact" class="sticky-btn">Connect with Us</a>
+  </header>
+
+  <!-- About Section -->
+  <section id="about">
+    <h2>About Elevare</h2>
+    <ul>
+      <li>17 years experience as a Labour & Delivery RN</li>
+      <li>Assisted midwife deliveries and taught fetal health surveillance</li>
+      <li>Expertise in prenatal and postpartum care</li>
+    </ul>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services">
+    <h2>Services</h2>
+    <div class="service-box">
+      <h3>Prenatal</h3>
+      <p>Placeholder description for prenatal care.</p>
+    </div>
+    <div class="service-box">
+      <h3>Postnatal</h3>
+      <p>Placeholder description for postnatal support.</p>
+    </div>
+    <div class="service-box">
+      <h3>Custom Package</h3>
+      <p>Placeholder description for personalized care packages.</p>
+    </div>
+  </section>
+
+  <!-- Why RN-led Care Section -->
+  <section id="why">
+    <h2>Why RN-led Care Matters</h2>
+    <p>Registered nurses can provide personalized, high-quality support outside the standard hospital birthing experience, including individualized monitoring, education, and postpartum care.</p>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section id="testimonials">
+    <h2>Testimonials</h2>
+    <p>“Placeholder testimonial #1”</p>
+    <p>“Placeholder testimonial #2”</p>
+  </section>
+
+  <!-- FAQ Section -->
+  <section id="faq">
+    <h2>Frequently Asked Questions</h2>
+    <p><strong>Q:</strong> Placeholder question #1?</p>
+    <p><strong>A:</strong> Placeholder answer #1.</p>
+    <p><strong>Q:</strong> Placeholder question #2?</p>
+    <p><strong>A:</strong> Placeholder answer #2.</p>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2>Get in Touch</h2>
+    <form>
+      <input type="text" name="name" placeholder="Your Name">
+      <input type="email" name="email" placeholder="Your Email">
+      <input type="text" name="due_date" placeholder="Due Date / Postpartum Date">
+      <textarea name="message" placeholder="Your Message"></textarea>
+      <button type="submit">Submit Consultation Request</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2026 Elevare Perinatal Care</p>
+    <p>Social links placeholder</p>
+    <p>Email: <a href="mailto:info@elevareperinatal.com">info@elevareperinatal.com</a></p>
+  </footer>
+
+  <!-- Active Section Highlight JS -->
+  <script>
+    const navLinks = document.querySelectorAll('nav.main-nav a');
+    const sections = document.querySelectorAll('section');
+
+    function updateActiveLink() {
+      let scrollPos = window.scrollY + window.innerHeight / 3;
+      sections.forEach(section => {
+        if (scrollPos >= section.offsetTop && scrollPos < section.offsetTop + section.offsetHeight) {
+          navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === '#' + section.id) {
+              link.classList.add('active');
+            }
+          });
+        }
+      });
+    }
+
+    window.addEventListener('scroll', updateActiveLink);
+    updateActiveLink();
+  </script>
+
+</body>
+</html>

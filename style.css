@@ -1,0 +1,187 @@
+/* =========================
+   Base Styles
+========================= */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  scroll-behavior: smooth; /* smooth scrolling for anchor links */
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* =========================
+   Navigation Bar
+========================= */
+nav.main-nav {
+  position: sticky;
+  top: 0;
+  background-color: #ffffffcc; /* white with slight transparency */
+  padding: 15px 20px;
+  text-align: center;
+  z-index: 999;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+nav.main-nav a {
+  margin: 0 15px;
+  font-weight: bold;
+  color: #333;
+  transition: color 0.2s ease;
+}
+
+nav.main-nav a:hover {
+  color: #3caea3; /* seafoam accent */
+}
+
+/* Active section link */
+nav.main-nav a.active {
+  color: #3caea3;
+  border-bottom: 2px solid #3caea3;
+  padding-bottom: 3px;
+}
+
+/* =========================
+   Hero Section
+========================= */
+header {
+  background-color: #d6f0e1; /* light seafoam green */
+  color: #333;
+  text-align: center;
+  padding: 120px 20px 100px 20px;
+  position: relative;
+}
+
+header h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+header p {
+  font-size: 1.25rem;
+}
+
+/* =========================
+   Sticky Connect Button
+========================= */
+.sticky-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #3caea3;
+  color: #fff;
+  padding: 15px 25px;
+  border-radius: 8px;
+  font-weight: bold;
+  z-index: 1000;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.sticky-btn:hover {
+  background-color: #2d9188;
+  transform: translateY(-2px);
+}
+
+/* =========================
+   Sections
+========================= */
+section {
+  padding: 60px 20px;
+}
+
+section h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2rem;
+  color: #333;
+}
+
+ul {
+  list-style-type: disc;
+  padding-left: 40px;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Service Boxes */
+.service-box {
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 600px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.service-box:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* =========================
+   Form Styling
+========================= */
+form input, form textarea {
+  display: block;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto 15px auto;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+form button {
+  display: block;
+  margin: 0 auto;
+  padding: 12px 25px;
+  background-color: #3caea3;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+form button:hover {
+  background-color: #2d9188;
+  transform: translateY(-2px);
+}
+
+/* =========================
+   Footer
+========================= */
+footer {
+  background-color: #f2f2f2;
+  text-align: center;
+  padding: 30px 20px;
+}
+
+/* =========================
+   Responsive Design
+========================= */
+@media (max-width: 768px) {
+  nav.main-nav a {
+    display: block;
+    margin: 10px 0;
+  }
+
+  header h1 {
+    font-size: 2.2rem;
+  }
+
+  header p {
+    font-size: 1rem;
+  }
+
+  .service-box {
+    margin: 20px 10px;
+  }
+}
