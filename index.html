@@ -4,42 +4,165 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Elevare Perinatal Care</title>
-  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+    }
+    nav.main-nav {
+      background-color: #ffffff; /* placeholder, can style later */
+      padding: 15px 20px;
+      text-align: center;
+      position: relative; /* will make sticky later in CSS */
+      z-index: 999;
+    }
+    nav.main-nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
+    section {
+      padding: 60px 20px;
+    }
+    header {
+      background-color: #d6f0e1; /* light seafoam green */
+      color: #333;
+      text-align: center;
+      padding: 100px 20px;
+      position: relative;
+    }
+    h1, h2 {
+      margin-bottom: 20px;
+    }
+    ul {
+      list-style-type: disc;
+      padding-left: 40px;
+    }
+    .service-box {
+      border: 1px solid #ccc;
+      padding: 20px;
+      margin: 10px 0;
+    }
+    form input, form textarea {
+      display: block;
+      width: 100%;
+      max-width: 400px;
+      margin-bottom: 15px;
+      padding: 10px;
+    }
+    form button {
+      padding: 10px 20px;
+    }
+    footer {
+      background-color: #f2f2f2;
+      text-align: center;
+      padding: 20px;
+    }
+    /* Sticky Connect button */
+    .sticky-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #3caea3;
+      color: #fff;
+      padding: 15px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      z-index: 1000;
+    }
+  </style>
 </head>
 <body>
+
+  <!-- Navigation Bar -->
+  <nav class="main-nav">
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#why">Why RN Care</a>
+    <a href="#testimonials">Testimonials</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <!-- Hero / Header -->
   <header>
-    <div class="container">
-      <h1>Elevare Perinatal Care</h1>
-      <p class="tagline">Thoughtful, expert nursing care for pregnancy & postpartum</p>
-      <a href="#contact" class="cta-button">Book a Consultation</a>
-    </div>
+    <h1>Elevare Perinatal Care</h1>
+    <p>Thoughtful, expert nursing care for pregnancy & postpartum</p>
+    <a href="#contact" class="sticky-btn">Connect with Us</a>
   </header>
 
-  <main>
-    <section id="about" class="container">
-      <h2>About Us</h2>
-      <p>Private, registered nurse–led support tailored to your pregnancy journey and early parenthood.</p>
-    </section>
+  <!-- About Section -->
+  <section id="about">
+    <h2>About Elevare</h2>
+    <ul>
+      <li>17 years experience as a Labour & Delivery RN</li>
+      <li>Assisted midwife deliveries and taught fetal health surveillance</li>
+      <li>Expertise in prenatal and postpartum care</li>
+    </ul>
+    <p>Optional image placeholder here</p>
+  </section>
 
-    <section id="services" class="container">
-      <h2>Services</h2>
-      <ul>
-        <li>Antenatal care</li>
-        <li>Postpartum nursing</li>
-        <li>Home visits and education</li>
-      </ul>
-    </section>
-
-    <section id="contact" class="container">
-      <h2>Contact</h2>
-      <p>Email us at <a href="mailto:hello@elevareperinatal.com">hello@elevareperinatal.com</a> to book a consultation.</p>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container">
-      <p>&copy; 2026 Elevare Perinatal Care</p>
+  <!-- Services Section -->
+  <section id="services">
+    <h2>Services</h2>
+    <div class="service-box">
+      <h3>Prenatal</h3>
+      <p>Placeholder description for prenatal care.</p>
     </div>
+    <div class="service-box">
+      <h3>Postnatal</h3>
+      <p>Placeholder description for postnatal support.</p>
+    </div>
+    <div class="service-box">
+      <h3>Custom Package</h3>
+      <p>Placeholder description for personalized care packages.</p>
+    </div>
+  </section>
+
+  <!-- Why RN-led Care Section -->
+  <section id="why">
+    <h2>Why RN-led Care Matters</h2>
+    <p>Registered nurses can provide personalized, high-quality support outside the standard hospital birthing experience, including individualized monitoring, education, and postpartum care.</p>
+    <p>Optional image placeholder here</p>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section id="testimonials">
+    <h2>Testimonials</h2>
+    <p>“Placeholder testimonial #1”</p>
+    <p>“Placeholder testimonial #2”</p>
+  </section>
+
+  <!-- FAQ Section -->
+  <section id="faq">
+    <h2>Frequently Asked Questions</h2>
+    <p><strong>Q:</strong> Placeholder question #1?</p>
+    <p><strong>A:</strong> Placeholder answer #1.</p>
+    <p><strong>Q:</strong> Placeholder question #2?</p>
+    <p><strong>A:</strong> Placeholder answer #2.</p>
+  </section>
+
+  <!-- Contact Section / Lead Capture -->
+  <section id="contact">
+    <h2>Get in Touch</h2>
+    <form>
+      <input type="text" name="name" placeholder="Your Name">
+      <input type="email" name="email" placeholder="Your Email">
+      <input type="text" name="due_date" placeholder="Due Date / Postpartum Date">
+      <textarea name="message" placeholder="Your Message"></textarea>
+      <button type="submit">Submit Consultation Request</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2026 Elevare Perinatal Care</p>
+    <p>Social links placeholder</p>
+    <p>Email: <a href="mailto:info@elevareperinatal.com">info@elevareperinatal.com</a></p>
   </footer>
+
 </body>
 </html>
