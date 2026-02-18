@@ -1,256 +1,201 @@
-/* =========================
-   Fonts & Base Styles
-========================= */
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap');
+/* ------------------------
+   Variables & General
+------------------------ */
+:root {
+  --primary: #3caea3;
+  --primary-dark: #2d8a81;
+  --bg-light: #f9fbfb;
+  --bg-alt: #eff7f6;
+  --text-main: #2c3e50;
+}
+
+html { scroll-behavior: smooth; }
 
 body {
   margin: 0;
-  font-family: 'Nunito', sans-serif;
-  line-height: 1.6;
-  scroll-behavior: smooth;
-  background-color: #fffaf0;
-  color: #333;
+  font-family: 'Lato', sans-serif;
+  color: var(--text-main);
+  line-height: 1.8;
+  background-color: var(--bg-light);
 }
 
-a {
-  text-decoration: none;
-  color: inherit;
-}
+h1, h2, h3 { font-family: 'Playfair Display', serif; text-align: center; }
 
-/* =========================
-   Navigation Bar
-========================= */
-nav.main-nav {
+/* ------------------------
+   Navigation
+------------------------ */
+.main-nav {
   position: sticky;
   top: 0;
-  background-color: #ffffffcc;
-  padding: 15px 20px;
+  background: white;
+  padding: 15px 0;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  z-index: 1000;
+}
+
+.nav-container {
+  max-width: 1100px;
+  margin: 0 auto;
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  z-index: 999;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
 }
 
-nav.main-nav a {
-  margin: 0 15px;
-  font-weight: 600;
-  color: #333;
-  position: relative;
-  padding: 8px 15px; /* added padding for wider highlight */
-  transition: all 0.3s ease;
-  border-radius: 5px;
+.logo { font-size: 1.5rem; font-weight: 800; color: var(--primary-dark); }
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--text-main);
+  margin-left: 20px;
+  font-weight: 700;
 }
 
-/* underline + seafoam background on hover/active */
-nav.main-nav a::after {
-  content: '';
-  position: absolute;
-  left: 10%;
-  bottom: 0;
-  width: 80%;
-  height: 3px;
-  background-color: #3caea3;
-  transition: width 0.3s ease;
-}
-
-nav.main-nav a:hover::after,
-nav.main-nav a.active::after {
-  width: 80%;
-}
-
-nav.main-nav a.active {
-  background-color: #d6f0e1;
-}
-
-/* Hamburger Menu Icon */
+/* Hamburger UI */
 .hamburger {
   display: none;
+  flex-direction: column;
   cursor: pointer;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 28px;
-  height: 20px;
-}
-
-.hamburger span {
-  display: block;
-  height: 3px;
-  background-color: #333;
-  border-radius: 2px;
-}
-
-/* Dropdown for mobile nav */
-.nav-dropdown {
-  display: none;
-  flex-direction: column;
-  text-align: center;
-  width: 100%;
-  background-color: #ffffffcc;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-.nav-dropdown a {
-  margin: 10px 0;
-  padding: 10px;
-}
-
-/* =========================
-   Hero Section
-========================= */
-header {
-  background-color: #d6f0e1;
-  color: #333;
-  text-align: center;
-  padding: 160px 20px 120px 20px; /* added top spacing */
-  position: relative;
-}
-
-header h1 {
-  font-size: 3rem;
-  margin-bottom: 20px;
-}
-
-header p {
-  font-size: 1.25rem;
-}
-
-/* =========================
-   Sticky Connect Button
-========================= */
-.sticky-btn {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: #3caea3;
-  color: #fff;
-  padding: 15px 25px;
-  border-radius: 8px;
-  font-weight: bold;
-  z-index: 1000;
-  transition: transform 0.2s ease, background 0.2s ease;
-}
-
-.sticky-btn:hover {
-  background-color: #2d9188;
-  transform: translateY(-2px);
-}
-
-/* =========================
-   Sections
-========================= */
-section {
-  padding: 80px 20px; /* added top/bottom spacing */
-  max-width: 800px;
-  margin: 0 auto;
-  border-radius: 10px;
-}
-
-/* Alternate background for visual separation */
-section:nth-child(even) {
-  background-color: #fffaf0;
-}
-
-section:nth-child(odd) {
-  background-color: #d6f0e1;
-}
-
-section h2 {
-  text-align: center;
-  margin-bottom: 30px;
-  font-size: 2rem;
-}
-
-ul {
-  list-style-type: disc;
-  padding-left: 40px;
-  margin: 0 auto;
-}
-
-/* Service Boxes */
-.service-box {
-  border: 1px solid #ccc;
-  padding: 20px;
-  margin: 20px auto;
-  max-width: 600px;
-  border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-  text-align: center;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.service-box:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
-
-/* =========================
-   Form Styling
-========================= */
-form input, form textarea {
-  display: block;
-  width: 100%;
-  max-width: 400px;
-  margin: 0 auto 15px auto;
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 1rem;
-}
-
-form button {
-  display: block;
-  margin: 0 auto;
-  padding: 12px 25px;
-  background-color: #3caea3;
-  color: #fff;
+  background: none;
   border: none;
+  gap: 5px;
+}
+
+.bar {
+  width: 25px;
+  height: 3px;
+  background-color: var(--text-main); /* Ensure visible color */
+}
+
+/* ------------------------
+   Sticky Floating Button
+------------------------ */
+.floating-btn {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  background-color: var(--primary);
+  color: white;
+  padding: 15px 25px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: bold;
+  z-index: 9999; /* Higher than everything else */
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+/* ------------------------
+   Hero (60vh as requested)
+------------------------ */
+header {
+  height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
+              url('images/header.jpg') no-repeat center center/cover;
+  color: white;
+  padding: 0 20px;
+}
+
+header h1 { font-size: 3.5rem; margin-bottom: 0; }
+
+.btn-primary {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 30px;
+  background-color: var(--primary);
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+/* ------------------------
+   Section Layouts
+------------------------ */
+section { padding: 80px 20px; }
+
+.alt-bg { background-color: var(--bg-alt); }
+
+/* The fix for text width */
+.narrow-content {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.wide-content {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+.service-card {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  text-align: center;
+}
+
+/* ------------------------
+   Forms
+------------------------ */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-group { display: flex; gap: 15px; }
+
+input, textarea {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid #ddd;
   border-radius: 8px;
+  font-family: inherit;
+}
+
+.btn-submit {
+  background-color: var(--primary-dark);
+  color: white;
+  border: none;
+  padding: 15px;
   font-weight: bold;
   cursor: pointer;
-  transition: background 0.2s ease, transform 0.2s ease;
+  border-radius: 8px;
 }
 
-form button:hover {
-  background-color: #2d9188;
-  transform: translateY(-2px);
-}
-
-/* =========================
-   Footer
-========================= */
-footer {
-  background-color: #f2f2f2;
-  text-align: center;
-  padding: 30px 20px;
-}
-
-/* =========================
-   Responsive Design
-========================= */
+/* ------------------------
+   Mobile Responsiveness
+------------------------ */
 @media (max-width: 768px) {
-  nav.main-nav {
-    display: none;
+  .hamburger { display: flex; } /* Show hamburger on mobile */
+
+  .nav-links {
+    display: none; /* Hide standard links */
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background: white;
+    flex-direction: column;
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
   }
 
-  .hamburger {
-    display: flex;
-    margin: 15px;
-  }
+  .nav-links.show { display: flex; } /* JavaScript toggles this class */
 
-  .nav-dropdown.show {
-    display: flex;
-  }
+  .nav-links a { margin: 10px 0; }
 
-  header h1 {
-    font-size: 2.2rem;
-  }
-
-  header p {
-    font-size: 1rem;
-  }
-
-  .service-box {
-    margin: 20px 10px;
-  }
+  .form-group { flex-direction: column; }
+  header h1 { font-size: 2.2rem; }
 }
