@@ -55,24 +55,81 @@
     </section>
 
     <section id="services">
-      <div class="wide-content">
-        <h2>Our Services</h2>
-        <div class="services-grid">
-          <div class="service-card">
-            <h3>Prenatal Care</h3>
-            <p>Education and preparation for a confident birth experience.</p>
-          </div>
-          <div class="service-card">
-            <h3>Postnatal Care</h3>
-            <p>In-home nursing support and recovery tracking.</p>
-          </div>
-          <div class="service-card">
-            <h3>Custom Packages</h3>
-            <p>Tailored care plans designed for your family's needs.</p>
-          </div>
-        </div>
+  <div class="wide-content">
+    <h2>Professional Nursing Services</h2>
+    <p style="text-align: center; max-width: 800px; margin: 0 auto 40px;">Expert, RN-led care providing clinical insight and compassionate support throughout your transition to parenthood.</p>
+    
+    <div class="services-grid">
+      
+      <div class="service-card">
+        <div class="card-icon">01</div>
+        <h3>Prenatal Consulting</h3>
+        <p>Comprehensive preparation to build confidence and clinical understanding before your big day.</p>
+        
+        <details>
+          <summary>View Clinical & Support Details</summary>
+          <ul class="service-list">
+            <li>Personalized Birth Preference Mapping</li>
+            <li>Evidence-Based Labour Physiology Education</li>
+            <li>Prenatal Health & Wellness Assessments</li>
+            <li>Partner Support & Coaching Strategies</li>
+            <li>Navigating Medical Interventions Education</li>
+            <li>Comfort Measures & Position Training</li>
+            <li>High-Risk Pregnancy Support Coordination</li>
+            <li>Hospital vs. Home Logistics Planning</li>
+            <li>Newborn Care Essentials Preparation</li>
+            <li>Mental Health Wellness Planning</li>
+          </ul>
+        </details>
       </div>
-    </section>
+
+      <div class="service-card">
+        <div class="card-icon">02</div>
+        <h3>Labour & Birth Support</h3>
+        <p>Continuous bedside care providing a professional bridge between your home and the medical team.</p>
+        
+        <details>
+          <summary>View Clinical & Support Details</summary>
+          <ul class="service-list">
+            <li>Continuous Labour Support (Home & Hospital)</li>
+            <li>Clinical Observation & Vital Sign Monitoring</li>
+            <li>Non-Pharmacological Pain Management</li>
+            <li>Facilitation of Informed Decision Making</li>
+            <li>Active Labour Positioning Expertise</li>
+            <li>Advocacy Support for Your Birth Vision</li>
+            <li>Effective Communication with Medical Staff</li>
+            <li>Immediate Postpartum Golden Hour Support</li>
+            <li>Initial Breastfeeding/Feeding Initiation</li>
+            <li>Calm, Professional Crisis Management</li>
+          </ul>
+        </details>
+      </div>
+
+      <div class="service-card">
+        <div class="card-icon">03</div>
+        <h3>Postpartum Recovery</h3>
+        <p>Professional nursing oversight during the critical "Fourth Trimester" recovery period.</p>
+        
+        <details>
+          <summary>View Clinical & Support Details</summary>
+          <ul class="service-list">
+            <li>Post-Surgical & Tear Recovery Monitoring</li>
+            <li>Newborn Physical Assessments & Weight Checks</li>
+            <li>Clinical Breastfeeding & Lactation Support</li>
+            <li>Postpartum Mood & Anxiety Screening (PMAD)</li>
+            <li>Blood Pressure & Vitals Surveillance</li>
+            <li>Newborn Sleep & Soothing Guidance</li>
+            <li>Nutritional Support for Healing</li>
+            <li>Sibling Integration & Family Transition</li>
+            <li>Medication Management Education</li>
+            <li>Coordination of Community Referrals</li>
+          </ul>
+        </details>
+      </div>
+
+    </div>
+  </div>
+</section>
 
     <section id="rn-care" class="alt-bg">
       <div class="narrow-content">
@@ -124,6 +181,13 @@
   // 2. Mobile Menu Logic (The Hamburger)
   hamburger.addEventListener('click', () => {
     navLinksContainer.classList.toggle('show');
+  });
+
+  // NEW: Close mobile menu when any link is clicked
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      navLinksContainer.classList.remove('show');
+    });
   });
 
   // 3. Scroll Highlight Logic

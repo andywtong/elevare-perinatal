@@ -154,18 +154,121 @@ section { padding: 80px 20px; }
   margin: 0 auto;
 }
 
+/* --- Services Enhancements --- */
+
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 25px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  align-items: start; /* Prevents cards from stretching unevenly */
 }
 
 .service-card {
   background: white;
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  padding: 40px 30px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.03);
   text-align: center;
+  transition: all 0.3s ease;
+  border: 1px solid #f0f0f0;
+  position: relative;
+  overflow: hidden;
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 35px rgba(60, 174, 163, 0.1);
+  border-color: var(--primary);
+}
+
+.card-icon {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  color: var(--bg-alt);
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-weight: 800;
+  z-index: 0;
+}
+
+.service-card h3, .service-card p {
+  position: relative;
+  z-index: 1;
+}
+
+/* --- The Details/Accordion Style --- */
+
+details {
+  margin-top: 25px;
+  border-top: 1px solid #eee;
+  padding-top: 15px;
+  text-align: left;
+}
+
+summary {
+  list-style: none;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--primary-dark);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  outline: none;
+  transition: color 0.2s;
+}
+
+summary:hover {
+  color: var(--primary);
+}
+
+/* Custom indicator instead of the default arrow */
+summary::after {
+  content: '+';
+  margin-left: 10px;
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+}
+
+details[open] summary::after {
+  transform: rotate(45deg); /* Turns the + into an x */
+}
+
+/* Removing the default Safari triangle */
+summary::-webkit-details-marker {
+  display: none;
+}
+
+.service-list {
+  margin: 15px 0 0 0;
+  padding: 0 0 0 15px;
+  list-style-type: none;
+}
+
+.service-list li {
+  font-size: 0.85rem;
+  margin-bottom: 8px;
+  position: relative;
+  line-height: 1.4;
+  color: var(--text-main);
+}
+
+/* Small teal bullet points */
+.service-list li::before {
+  content: "•";
+  color: var(--primary);
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+}
+
+/* Mobile Tweak: Ensure cards don't feel too cramped */
+@media (max-width: 600px) {
+  .service-card {
+    padding: 30px 20px;
+  }
 }
 
 /* ------------------------
