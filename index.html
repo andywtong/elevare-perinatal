@@ -115,13 +115,40 @@
   </main>
 
   <script>
-    const hamburger = document.getElementById('hamburger');
-    const navLinks = document.getElementById('nav-links');
+  // 1. Select all the elements we need
+  const hamburger = document.getElementById('hamburger');
+  const navLinksContainer = document.getElementById('nav-links');
+  const sections = document.querySelectorAll("section, header");
+  const navLinks = document.querySelectorAll(".nav-links a");
 
-    hamburger.addEventListener('click', () => {
-      navLinks.classList.toggle('show');
+  // 2. Mobile Menu Logic (The Hamburger)
+  hamburger.addEventListener('click', () => {
+    navLinksContainer.classList.toggle('show');
+  });
+
+  // 3. Scroll Highlight Logic
+  window.addEventListener("scroll", () => {
+    let current = "";
+    
+    // Compatibility for older browsers/Macs
+    const scrollPos = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+
+    sections.forEach((section) => {
+      const sectionTop = section.offsetTop;
+      // We trigger the highlight when the section is 200px from the top
+      if (scrollPos >= sectionTop - 200) {
+        current = section.getAttribute("id");
+      }
     });
-  </script>
 
+    navLinks.forEach((link) => {
+      link.classList.remove("active");
+      // Check if the link's href matches the current section's ID
+      if (current && link.getAttribute("href") === `#${current}`) {
+        link.classList.add("active");
+      }
+    });
+  });
+</script>
 </body>
 </html>
