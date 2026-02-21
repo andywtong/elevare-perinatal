@@ -9,7 +9,7 @@
 </head>
 <body>
 
-  <a href="#intake" class="floating-btn">Book Now</a>
+  
 
   <nav class="main-nav">
     <div class="nav-container">
@@ -22,6 +22,7 @@
       </button>
 
       <div class="nav-links" id="nav-links">
+        <a href="#intake" class="nav-book">Book Now</a>
         <a href="#about">About</a>
         <a href="#services">Services</a>
         <a href="#rn-care">RN-Led Care</a>
@@ -53,7 +54,7 @@
         </ul>
       </div>
     </section>
-
+    
     <section id="services">
   <div class="wide-content">
     <h2>Professional Nursing Services</h2>
@@ -160,89 +161,67 @@
       <div class="narrow-content">
         <h2>Intake Form</h2>
         <form id="intakeForm" class="contact-form">
-          <div class="form-group form-row">
+          <div class="form-group form-row two-cols">
             <div>
-              <label for="name">Name</label>
+              <label for="name">Name <span class="required-asterisk">*</span></label>
               <input type="text" name="name" id="name" placeholder="Full name" required>
             </div>
             <div>
-              <label for="phone">Phone</label>
+              <label for="phone">Phone <span class="required-asterisk">*</span></label>
               <input type="tel" name="phone" id="phone" placeholder="Phone" required>
             </div>
+          </div>
+
+          <div class="form-group form-row two-cols">
             <div>
-              <label for="email">Email</label>
+              <label for="email">Email <span class="required-asterisk">*</span></label>
               <input type="email" name="email" id="email" placeholder="Email" required>
             </div>
-          </div>
-
-          <div class="form-group form-row">
             <div>
-              <label for="address">Address</label>
-              <input type="text" name="address" id="address" placeholder="Address">
-            </div>
-            <div>
-              <label for="birthday">Birthday</label>
-              <input type="date" name="birthday" id="birthday">
-            </div>
-            <div>
-              <label for="due_date">Due Date</label>
-              <input type="date" name="due_date" id="due_date">
+              <label for="address">Address <span class="required-asterisk">*</span></label>
+              <input type="text" name="address" id="address" placeholder="Address" required>
             </div>
           </div>
 
-          <div class="form-group form-row">
+          <div class="form-group form-row two-cols">
             <div>
-              <label for="care_provider">Care Provider</label>
-              <input type="text" name="care_provider" id="care_provider" placeholder="Care Provider">
+              <label for="birthday">Birthday <span class="required-asterisk">*</span></label>
+              <input type="date" name="birthday" id="birthday" required>
             </div>
             <div>
-              <label for="gravida">Gravida</label>
-              <div class="circle-options" id="gravida" role="radiogroup" aria-label="Gravida">
-                <!-- 0-10 radio options -->
-                <label class="circle-option"><input type="radio" name="gravida" value="0"><span>0</span></label>
-                <label class="circle-option"><input type="radio" name="gravida" value="1"><span>1</span></label>
-                <label class="circle-option"><input type="radio" name="gravida" value="2"><span>2</span></label>
-                <label class="circle-option"><input type="radio" name="gravida" value="3"><span>3</span></label>
-                <label class="circle-option"><input type="radio" name="gravida" value="4"><span>4</span></label>
-                <label class="circle-option"><input type="radio" name="gravida" value="5"><span>5</span></label>
-                <label class="circle-option"><input type="radio" name="gravida" value="6"><span>6</span></label>
-                <label class="circle-option"><input type="radio" name="gravida" value="7"><span>7</span></label>
-                <label class="circle-option"><input type="radio" name="gravida" value="8"><span>8</span></label>
-                <label class="circle-option"><input type="radio" name="gravida" value="9"><span>9</span></label>
-                <label class="circle-option"><input type="radio" name="gravida" value="10"><span>10</span></label>
-              </div>
+              <label for="due_date">Due Date <span class="required-asterisk">*</span></label>
+              <input type="date" name="due_date" id="due_date" required>
+            </div>
+          </div>
+
+          <div class="form-group form-row three-cols">
+            <div>
+              <label for="care_provider">Care Provider <span class="required-asterisk">*</span></label>
+              <input type="text" name="care_provider" id="care_provider" placeholder="Care Provider" required>
             </div>
             <div>
-              <label for="para">Para</label>
-              <div class="circle-options" id="para" role="radiogroup" aria-label="Para">
-                <label class="circle-option"><input type="radio" name="para" value="0"><span>0</span></label>
-                <label class="circle-option"><input type="radio" name="para" value="1"><span>1</span></label>
-                <label class="circle-option"><input type="radio" name="para" value="2"><span>2</span></label>
-                <label class="circle-option"><input type="radio" name="para" value="3"><span>3</span></label>
-                <label class="circle-option"><input type="radio" name="para" value="4"><span>4</span></label>
-                <label class="circle-option"><input type="radio" name="para" value="5"><span>5</span></label>
-                <label class="circle-option"><input type="radio" name="para" value="6"><span>6</span></label>
-                <label class="circle-option"><input type="radio" name="para" value="7"><span>7</span></label>
-                <label class="circle-option"><input type="radio" name="para" value="8"><span>8</span></label>
-                <label class="circle-option"><input type="radio" name="para" value="9"><span>9</span></label>
-                <label class="circle-option"><input type="radio" name="para" value="10"><span>10</span></label>
-              </div>
+              <label for="gravida">Gravida <span class="required-asterisk">*</span></label>
+              <input type="number" name="gravida" id="gravida" min="0" max="20" placeholder="Gravida" required>
+            </div>
+            <div>
+              <label for="para">Para <span class="required-asterisk">*</span></label>
+              <input type="number" name="para" id="para" min="0" max="20" placeholder="Para" required>
             </div>
           </div>
 
           <div>
-            <label for="delivery_location">Where do you plan to deliver?</label>
-            <textarea name="delivery_location" id="delivery_location" placeholder="Where do you plan to deliver?"></textarea>
+            <label for="delivery_location">Where do you plan to deliver? <span class="required-asterisk">*</span></label>
+            <textarea name="delivery_location" id="delivery_location" placeholder="Where do you plan to deliver?" required></textarea>
           </div>
 
           <div>
-            <label for="health_history">Health history</label>
-            <textarea name="health_history" id="health_history" placeholder="Health history"></textarea>
+            <label for="health_history">Health history <span class="required-asterisk">*</span></label>
+            <textarea name="health_history" id="health_history" placeholder="Health history" required></textarea>
           </div>
 
           <div>
-            <label for="what_appeals">What appeals to you about Elevare?</label>
-            <textarea name="what_appeals" id="what_appeals" placeholder="What appeals to you about Elevare?"></textarea>
+            <label for="what_appeals">What appeals to you about Elevare? <span class="required-asterisk">*</span></label>
+            <textarea name="what_appeals" id="what_appeals" placeholder="What appeals to you about Elevare?" required></textarea>
           </div>
 
           <div>
@@ -255,6 +234,10 @@
         </form>
       </div>
     </section>
+    <!-- Mobile sticky action bar for Book Now (shows only on small screens) -->
+    <div class="mobile-action-bar" aria-hidden="true">
+      <a href="#intake" class="btn-submit mobile-book">Book Now</a>
+    </div>
   </main>
 
   <script>
