@@ -9,7 +9,7 @@
 </head>
 <body>
 
-  <a href="#contact" class="floating-btn">Book Now</a>
+  <a href="#intake" class="floating-btn">Book Now</a>
 
   <nav class="main-nav">
     <div class="nav-container">
@@ -27,7 +27,7 @@
         <a href="#rn-care">RN-Led Care</a>
         <a href="#testimonials">Testimonials</a>
         <a href="#faq">FAQ</a>
-        <a href="#contact">Connect</a>
+        <a href="#intake">Intake</a>
       </div>
     </div>
   </nav>
@@ -36,7 +36,7 @@
     <div class="hero-content">
       <h1>Elevare Perinatal Care</h1>
       <p>Thoughtful, expert nursing care for pregnancy & postpartum</p>
-      <a href="#contact" class="btn-primary">Connect with Us</a>
+      <a href="#intake" class="btn-primary">Connect with Us</a>
     </div>
   </header>
 
@@ -156,16 +156,102 @@
       </div>
     </section>
 
-    <section id="contact">
+    <section id="intake">
       <div class="narrow-content">
-        <h2>Connect</h2>
-        <form class="contact-form">
-          <div class="form-group">
-            <input type="text" placeholder="Name" required>
-            <input type="email" placeholder="Email" required>
+        <h2>Intake Form</h2>
+        <form id="intakeForm" class="contact-form">
+          <div class="form-group form-row">
+            <div>
+              <label for="name">Name</label>
+              <input type="text" name="name" id="name" placeholder="Full name" required>
+            </div>
+            <div>
+              <label for="phone">Phone</label>
+              <input type="tel" name="phone" id="phone" placeholder="Phone" required>
+            </div>
+            <div>
+              <label for="email">Email</label>
+              <input type="email" name="email" id="email" placeholder="Email" required>
+            </div>
           </div>
-          <textarea placeholder="Message" required></textarea>
-          <button type="submit" class="btn-submit">Send</button>
+
+          <div class="form-group form-row">
+            <div>
+              <label for="address">Address</label>
+              <input type="text" name="address" id="address" placeholder="Address">
+            </div>
+            <div>
+              <label for="birthday">Birthday</label>
+              <input type="date" name="birthday" id="birthday">
+            </div>
+            <div>
+              <label for="due_date">Due Date</label>
+              <input type="date" name="due_date" id="due_date">
+            </div>
+          </div>
+
+          <div class="form-group form-row">
+            <div>
+              <label for="care_provider">Care Provider</label>
+              <input type="text" name="care_provider" id="care_provider" placeholder="Care Provider">
+            </div>
+            <div>
+              <label for="gravida">Gravida</label>
+              <div class="circle-options" id="gravida" role="radiogroup" aria-label="Gravida">
+                <!-- 0-10 radio options -->
+                <label class="circle-option"><input type="radio" name="gravida" value="0"><span>0</span></label>
+                <label class="circle-option"><input type="radio" name="gravida" value="1"><span>1</span></label>
+                <label class="circle-option"><input type="radio" name="gravida" value="2"><span>2</span></label>
+                <label class="circle-option"><input type="radio" name="gravida" value="3"><span>3</span></label>
+                <label class="circle-option"><input type="radio" name="gravida" value="4"><span>4</span></label>
+                <label class="circle-option"><input type="radio" name="gravida" value="5"><span>5</span></label>
+                <label class="circle-option"><input type="radio" name="gravida" value="6"><span>6</span></label>
+                <label class="circle-option"><input type="radio" name="gravida" value="7"><span>7</span></label>
+                <label class="circle-option"><input type="radio" name="gravida" value="8"><span>8</span></label>
+                <label class="circle-option"><input type="radio" name="gravida" value="9"><span>9</span></label>
+                <label class="circle-option"><input type="radio" name="gravida" value="10"><span>10</span></label>
+              </div>
+            </div>
+            <div>
+              <label for="para">Para</label>
+              <div class="circle-options" id="para" role="radiogroup" aria-label="Para">
+                <label class="circle-option"><input type="radio" name="para" value="0"><span>0</span></label>
+                <label class="circle-option"><input type="radio" name="para" value="1"><span>1</span></label>
+                <label class="circle-option"><input type="radio" name="para" value="2"><span>2</span></label>
+                <label class="circle-option"><input type="radio" name="para" value="3"><span>3</span></label>
+                <label class="circle-option"><input type="radio" name="para" value="4"><span>4</span></label>
+                <label class="circle-option"><input type="radio" name="para" value="5"><span>5</span></label>
+                <label class="circle-option"><input type="radio" name="para" value="6"><span>6</span></label>
+                <label class="circle-option"><input type="radio" name="para" value="7"><span>7</span></label>
+                <label class="circle-option"><input type="radio" name="para" value="8"><span>8</span></label>
+                <label class="circle-option"><input type="radio" name="para" value="9"><span>9</span></label>
+                <label class="circle-option"><input type="radio" name="para" value="10"><span>10</span></label>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <label for="delivery_location">Where do you plan to deliver?</label>
+            <textarea name="delivery_location" id="delivery_location" placeholder="Where do you plan to deliver?"></textarea>
+          </div>
+
+          <div>
+            <label for="health_history">Health history</label>
+            <textarea name="health_history" id="health_history" placeholder="Health history"></textarea>
+          </div>
+
+          <div>
+            <label for="what_appeals">What appeals to you about Elevare?</label>
+            <textarea name="what_appeals" id="what_appeals" placeholder="What appeals to you about Elevare?"></textarea>
+          </div>
+
+          <div>
+            <label for="other_questions">Any other questions</label>
+            <textarea name="other_questions" id="other_questions" placeholder="Any other questions"></textarea>
+          </div>
+
+          <button type="submit" class="btn-submit" id="submitBtn">Send</button>
+          <div id="formStatus" role="status" aria-live="polite" style="margin-top:10px;"></div>
         </form>
       </div>
     </section>
@@ -213,6 +299,66 @@
       }
     });
   });
+
+  // Intake form submission via Formspree
+  const intakeForm = document.getElementById('intakeForm');
+  const submitBtn = document.getElementById('submitBtn');
+  const formStatus = document.getElementById('formStatus');
+
+  // Endpoint configured by user
+  const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mojnngaz';
+
+  if (intakeForm) {
+    intakeForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      submitBtn.disabled = true;
+      formStatus.textContent = 'Sending...';
+
+      const formData = new FormData(intakeForm);
+
+      try {
+        const res = await fetch(FORMSPREE_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: formData
+        });
+
+        if (res.ok) {
+          formStatus.textContent = 'Message sent — thank you!';
+          intakeForm.reset();
+        } else {
+          const data = await res.json().catch(() => ({}));
+          formStatus.textContent = data.error || 'There was an error sending the message.';
+        }
+      } catch (err) {
+        formStatus.textContent = 'Network error — please try again later.';
+      } finally {
+        submitBtn.disabled = false;
+      }
+    });
+  }
+
+  // Lightweight autosize helper for the four intake textareas
+  (function(){
+    const ids = ['delivery_location','health_history','what_appeals','other_questions'];
+
+    const autosize = (el) => {
+      if (!el) return;
+      el.style.height = 'auto';
+      el.style.height = el.scrollHeight + 'px';
+    };
+
+    ids.forEach(id => {
+      const el = document.querySelector(`#intakeForm textarea#${id}`);
+      if (!el) return;
+      // initialize size
+      autosize(el);
+      // expand as user types
+      el.addEventListener('input', () => autosize(el));
+      // also adjust when window resizes (optional)
+      window.addEventListener('resize', () => autosize(el));
+    });
+  })();
 </script>
 </body>
 </html>
