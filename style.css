@@ -632,3 +632,20 @@ select {
     height: 100px;
   }
 }
+
+/* Custom 'Tight' zone for mid-sized screens */
+@media (max-width: 1100px) and (min-width: 901px) {
+  .nav-links a {
+    margin-left: 5px;   /* Reduced from 10px */
+    padding: 6px 10px;  /* Reduced from 8px 16px */
+    font-size: 0.85rem; /* Slightly smaller text to prevent wrapping */
+  }
+  
+  .nav-container {
+    padding: 0 10px;    /* Squeeze the outer container padding */
+  }
+
+  .nav-book {
+    padding: 6px 10px;  /* Make the Intake button a bit more compact */
+  }
+}
