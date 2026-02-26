@@ -605,12 +605,30 @@ select {
 /* --- Fade-In Animation Styles --- */
 .reveal {
   opacity: 0;
-  transform: translateY(40px); /* Increased from 30px for more "lift" */
-  transition: all 1.2s cubic-bezier(0.2, 1, 0.3, 1); /* The "Apple" secret sauce */
+  transform: translateY(80px); /* Increased from 30px for more "lift" */
+  transition: all 1.8s cubic-bezier(0.2, 1, 0.3, 1); /* The "Apple" secret sauce */
 }
 
 /* The class that JavaScript will add when you scroll */
 .reveal.active {
   opacity: 1;
   transform: translateY(0);
+}
+
+.nav-logo {
+  height: 100px;    /* This keeps the height consistent with your nav bar */
+  width: auto;     /* This keeps the logo from stretching */
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.logo-link:hover .nav-logo {
+  transform: scale(1.05); /* A subtle "Apple-style" lift when hovered */
+}
+
+/* Mobile Tweak: Make it a bit smaller on phones */
+@media (max-width: 768px) {
+  .nav-logo {
+    height: 100px;
+  }
 }

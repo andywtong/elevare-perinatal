@@ -6,6 +6,8 @@
   <title>Elevare Perinatal Care</title>
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Playfair+Display:wght@600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css?v=1.1">
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <link rel="apple-touch-icon" href="images/favicon.png">
 </head>
 <body>
   
@@ -13,7 +15,9 @@
   
   <nav class="main-nav">
     <div class="nav-container">
-      <span class="logo">Elevare</span>
+      <a href="/" class="logo-link">
+        <img src="images/logo_website_final.png" alt="Elevare Logo" class="nav-logo">
+      </a>
       
       <a href="intake.html" class="nav-book">Intake Form</a>
 
@@ -61,67 +65,79 @@
       
       <div class="service-card">
         <div class="card-icon">01</div>
-        <h3>Prenatal Consulting</h3>
-        <p>Comprehensive preparation to build confidence and clinical understanding before your big day.</p>
+        <h3>Comprehensive Prenatal Care Package — $800</h3>
+        <p>A refined, evidence-based prenatal care experience that blends clinical expertise with deeply personalized education and support.</p>
+        <p>Designed for families seeking exceptional nursing guidance, this package ensures thorough preparation, informed decision-making, and calm confidence throughout pregnancy.</p>
         
         <details>
           <summary>View Clinical & Support Details</summary>
           <ul class="service-list">
-            <li>Personalized Birth Preference Mapping</li>
-            <li>Evidence-Based Labour Physiology Education</li>
-            <li>Prenatal Health & Wellness Assessments</li>
-            <li>Partner Support & Coaching Strategies</li>
-            <li>Navigating Medical Interventions Education</li>
-            <li>Comfort Measures & Position Training</li>
-            <li>High-Risk Pregnancy Support Coordination</li>
-            <li>Hospital vs. Home Logistics Planning</li>
-            <li>Newborn Care Essentials Preparation</li>
-            <li>Mental Health Wellness Planning</li>
+            
+            <li>Customized, evidence-based prenatal education</li>
+            <li>Personalized birth planning and decision support</li>
+            <li>Comprehensive prenatal nursing assessment</li>
+            <li>Individualized preparation for home, birth centre, or hospital birth</li>
+            <li>Physical, emotional, and mental readiness support</li>
+            <li>Unlimited text, email, and phone access throughout pregnancy</li>
+
           </ul>
         </details>
       </div>
 
       <div class="service-card">
         <div class="card-icon">02</div>
-        <h3>Labour & Birth Support</h3>
-        <p>Continuous bedside care providing a professional bridge between your home and the medical team.</p>
+        <h3>Continuous Labor & Birth Support Package — $2,500</h3>
+        <p>An elevated, RN-led labor and birth experience providing continuous clinical assessment, skilled comfort care, and unwavering professional presence.</p>
+        <p>This high-touch service offers seamless integration with your chosen birth team, ensuring safety, advocacy, and reassurance throughout labor, birth, and the immediate postpartum period.</p>
         
         <details>
           <summary>View Clinical & Support Details</summary>
           <ul class="service-list">
-            <li>Continuous Labour Support (Home & Hospital)</li>
-            <li>Clinical Observation & Vital Sign Monitoring</li>
-            <li>Non-Pharmacological Pain Management</li>
-            <li>Facilitation of Informed Decision Making</li>
-            <li>Active Labour Positioning Expertise</li>
-            <li>Advocacy Support for Your Birth Vision</li>
-            <li>Effective Communication with Medical Staff</li>
-            <li>Immediate Postpartum Golden Hour Support</li>
-            <li>Initial Breastfeeding/Feeding Initiation</li>
-            <li>Calm, Professional Crisis Management</li>
+            
+            <li>24/7 on-call Registered Nurse availability beginning at 37 weeks</li>
+            <li>Weekly prenatal visits focused on preparation, comfort strategies, and education</li>
+            <li>Continuous nursing presence throughout labor, birth, and early postpartum</li>
+            <li>Evidence-based comfort and pain management techniques</li>
+            <li>Clinical fetal monitoring support and interpretation</li>
+            <li>Cervical examinations when clinically indicated</li>
+            <li>Skilled guidance in optimal fetal positioning to support physiological birth</li>
+            <li>Ongoing explanation of labor progress, terminology, and care options</li>
+            <li>Creation of a personalized labor timeline</li>
+            <li>Postpartum support and birth debrief</li>
+
           </ul>
         </details>
       </div>
       
       <div class="service-card">
         <div class="card-icon">03</div>
-        <h3>Postpartum Recovery</h3>
-        <p>Professional nursing oversight during the critical "Fourth Trimester" recovery period.</p>
+        <h3>Postpartum Recovery & Newborn Care Package — $3,000</h3>
+        <p>A comprehensive, in-home postpartum nursing care experience focused on physical recovery, emotional well-being, feeding success, and newborn transition.</p>
+        <p>This premium service provides extended clinical oversight and continuity of care, supporting families through the crucial first month following birth.</p>
         
         <details>
           <summary>View Clinical & Support Details</summary>
           <ul class="service-list">
-            <li>Post-Surgical & Tear Recovery Monitoring</li>
-            <li>Newborn Physical Assessments & Weight Checks</li>
-            <li>Clinical Breastfeeding & Lactation Support</li>
-            <li>Postpartum Mood & Anxiety Screening (PMAD)</li>
-            <li>Blood Pressure & Vitals Surveillance</li>
-            <li>Newborn Sleep & Soothing Guidance</li>
-            <li>Nutritional Support for Healing</li>
-            <li>Sibling Integration & Family Transition</li>
-            <li>Medication Management Education</li>
-            <li>Coordination of Community Referrals</li>
+            
+            <li>Six in-home nursing visits (Days 1, 2, 3, 5, 2 weeks, and 4 weeks)</li>
+            <li>One full month of postpartum nursing care</li>
+            <li>Comprehensive maternal and newborn assessments</li>
+            <li>Lactation and feeding support</li>
+            <li>Recovery-focused nursing care and education</li>
+            <li>Emotional reassurance and guidance</li>
+            <li>Postpartum mental health screening and support (PPD/PPA)</li>
+            <li>Messaging access between visits</li>
+
           </ul>
+          <p>Optional Enhanced Care Services:</p>
+          
+              <ul class="service-list">
+                <li>Overnight nursing and newborn care</li>
+                <li>Extended in-home recovery support</li>
+                <li>Additional customized visits</li>
+              </ul>
+          
+          <p>Tailored care plans available upon request.</p>
         </details>
       </div>
       
@@ -351,6 +367,26 @@ const revealSections = () => {
 
 // Run the function
 revealSections();
+
+// Listen for when the testimonial container stops scrolling
+container.addEventListener('scroll', () => {
+  // Clear any previous timer
+  clearTimeout(container.scrollTimeout);
+  
+  // Set a timer to run once scrolling stops (200ms)
+  container.scrollTimeout = setTimeout(() => {
+    // Find all 'full-text' spans and hide them
+    document.querySelectorAll('.full-text').forEach(span => {
+      span.style.display = "none";
+    });
+
+    // Find all 'Read More' buttons and reset their text
+    document.querySelectorAll('.read-more-btn').forEach(btn => {
+      btn.innerText = "Read More";
+    });
+  }, 200);
+});
+
 </script>
 </body>
 </html>
