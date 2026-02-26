@@ -659,6 +659,11 @@ select {
     align-items: center;
     z-index: 1000;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .nav-logo {
+      height: 60px; /* Reduced from 100px for mobile devices */
+      width: auto;
+    }
   }
 
   .nav-links.show {
