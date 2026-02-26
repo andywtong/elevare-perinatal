@@ -36,9 +36,10 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; text-align: center; }
   box-shadow: 0 2px 10px rgba(0,0,0,0.05);
   z-index: 9999; /* Crank this up to stay above everything */
   
-  /* Chrome-specific fix: Force hardware acceleration */
-  transform: translateZ(0);
-  -webkit-transform: translateZ(0);
+  /* This tells Chrome: 'Do not scroll this with the page' */
+  isolation: isolate; 
+  -webkit-transform: translate3d(0,0,0);
+  transform: translate3d(0,0,0);
 }
 
 /* IMPORTANT: Because 'fixed' removes the nav from the page flow, 
