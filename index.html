@@ -8,31 +8,31 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
   
-
+  
+  
   <nav class="main-nav">
     <div class="nav-container">
       <span class="logo">Elevare</span>
       
+      <a href="intake.html" class="nav-book">Intake Form</a>
+
       <button class="hamburger" id="hamburger">
         <div class="bar"></div>
         <div class="bar"></div>
         <div class="bar"></div>
       </button>
-
+      
       <div class="nav-links" id="nav-links">
-        <a href="#intake" class="nav-book">Book Now</a>
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
         <a href="#rn-care">RN-Led Care</a>
+        <a href="#services">Services</a>
         <a href="#testimonials">Testimonials</a>
         <a href="#faq">FAQ</a>
-        <a href="#intake">Intake</a>
+        <a href="#about">About</a>
       </div>
     </div>
   </nav>
-
+  
   <header>
     <div class="hero-content">
       <h1>Elevare Perinatal Care</h1>
@@ -40,23 +40,20 @@
       <a href="#intake" class="btn-primary">Connect with Us</a>
     </div>
   </header>
-
+  
   <main>
-    <section id="about" class="alt-bg">
+    <section id="rn-care" class="alt-bg" reveal>
       <div class="narrow-content">
-        <h2>About Elevare</h2>
-        <ul>
-          <p>At Elevare, we provide continuous, compassionate care to individuals and families throughout pregnancy, labour, birth, and the postpartum period—honouring every person’s right to choose the experience that feels safest and most aligned for them. Whether you are planning a home birth, a birth centre experience, or a medical hospital delivery, we offer a knowledgeable, calm, and unwavering presence every step of the way.</p>
+        <h2>Why RN-Led Care Matters</h2>
+        <p>At Elevare, we provide continuous, compassionate care to individuals and families throughout pregnancy, labour, birth, and the postpartum period—honouring every person’s right to choose the experience that feels safest and most aligned for them. Whether you are planning a home birth, a birth centre experience, or a medical hospital delivery, we offer a knowledgeable, calm, and unwavering presence every step of the way.</p>
 
-          <p>As a Registered Nurse with extensive obstetrical experience, I serve as a bridge between medical and physiological birth models. My role is to facilitate informed decision-making, support your self-advocacy, and help create an empowering birth environment. Through emotional reassurance, physical comfort measures, and evidence-based nursing guidance, I work to reduce fear and promote a positive experience.</p>
-
-          <p>Every birth is unique. My goal is to walk beside you with professional expertise and respect—supporting your vision and your journey into parenthood.</p>
-        </ul>
+        <p>Registered nurses provide personalized care outside the hospital environment, offering guidance, education, and support tailored to you and your family.</p>
       </div>
     </section>
+
     
-    <section id="services">
-  <div class="wide-content">
+    <section id="services" class="reveal">
+      <div class="wide-content">
     <h2>Professional Nursing Services</h2>
     <p style="text-align: center; max-width: 800px; margin: 0 auto 40px;">Expert, RN-led care providing clinical insight and compassionate support throughout your transition to parenthood.</p>
     
@@ -105,7 +102,7 @@
           </ul>
         </details>
       </div>
-
+      
       <div class="service-card">
         <div class="card-icon">03</div>
         <h3>Postpartum Recovery</h3>
@@ -127,113 +124,72 @@
           </ul>
         </details>
       </div>
-
+      
     </div>
   </div>
 </section>
 
-    <section id="rn-care" class="alt-bg">
-      <div class="narrow-content">
-        <h2>Why RN-Led Care Matters</h2>
-        <p>Registered nurses provide personalized care outside the hospital environment, offering guidance, education, and support tailored to you and your family.</p>
-      </div>
-    </section>
 
-    <section id="testimonials">
-      <div class="narrow-content">
-        <h2>Testimonials</h2>
-        <p>"Amazing care and support — I felt truly understood!"</p>
-        <p>"The guidance made my postpartum experience so much smoother."</p>
-      </div>
-    </section>
+      <section id="testimonials" class="reveal">
+        <div class="wide-content">
+          <h2>Kind Words from Families</h2>
+          
+          <div class="testimonial-wrapper" style="position: relative; display: flex; align-items: center;">
+            <button class="nav-arrow left" onclick="currentSlide('prev')">❮</button>
 
-    <section id="faq" class="alt-bg">
+            <div class="testimonial-container">
+              <div class="testimonial-card">
+                <p class="quote">"Amazing care and support — I felt truly understood!"</p>
+                <p class="author">— Sarah J.</p>
+              </div>
+              <div class="testimonial-card">
+                <p class="quote">"The guidance made my postpartum experience so much smoother."</p>
+                <p class="author">— Michael & Elena</p>
+              </div>
+              <div class="testimonial-card">
+                <p class="quote">
+                  I was so grateful and fortunate to have Li Lien attend both births of my children. With my first, I hadn't even realized I had transitioned. Not only did Li Lien notice, she was able to quickly 
+                  <span class="full-text" style="display: none;">confirm my progress and advocate for my safety and well being once I had arrived at the birthing center. I trusted her fully and felt complety calm and safe in her knowledge and expertise, and that gave me space to put all my focus on the birth. When it was time for the second birth, years later, she was there again offering a mix of common sense, comfort and encouragment that helped me gather the strength I needed to give birth. Li Lien is someone who you can feel loves their job fully, as it radiates from her. I *almost* would give birth again just to experience that again. I am forever grateful for her and her presence during that time of my life.  </span>"
+                </p>
+                <button class="read-more-btn" onclick="toggleText(this)" style="background: none; border: none; color: var(--primary); cursor: pointer; font-weight: bold; padding: 0;">Read More</button>
+                <p class="author">— Bonnie B.</p>
+              </div>
+            </div>
+
+            <button class="nav-arrow right" onclick="currentSlide('next')">❯</button>
+          </div>
+        </div>
+      </section>
+    
+    <section id="faq" class="alt-bg reveal">
       <div class="narrow-content">
         <h2>Frequently Asked Questions</h2>
         <p><strong>Q: Are services covered by insurance?</strong><br>
-           A: Many services are eligible for Health Spending Accounts.</p>
-        <p><strong>Q: How do I book a consultation?</strong><br>
-           A: Use the Connect section below or email directly.</p>
-      </div>
-    </section>
-
-    <section id="intake">
-      <div class="narrow-content">
-        <h2>Intake Form</h2>
-        <form id="intakeForm" class="contact-form">
-          <div class="form-group form-row two-cols">
-            <div>
-              <label for="name">Name <span class="required-asterisk">*</span></label>
-              <input type="text" name="name" id="name" placeholder="Full name" required>
-            </div>
-            <div>
-              <label for="phone">Phone <span class="required-asterisk">*</span></label>
-              <input type="tel" name="phone" id="phone" placeholder="Phone" required>
-            </div>
+          A: Many services are eligible for Health Spending Accounts.</p>
+          <p><strong>Q: How do I book a consultation?</strong><br>
+            A: Use the Connect section below or email directly.</p>
           </div>
-
-          <div class="form-group form-row two-cols">
-            <div>
-              <label for="email">Email <span class="required-asterisk">*</span></label>
-              <input type="email" name="email" id="email" placeholder="Email" required>
-            </div>
-            <div>
-              <label for="address">Address <span class="required-asterisk">*</span></label>
-              <input type="text" name="address" id="address" placeholder="Address" required>
-            </div>
+        </section>
+        
+        <section id="about" class="alt-bg reveal">
+          <div class="narrow-content">
+            <h2>About Elevare</h2>
+            <ul>
+              
+              <p>As a Registered Nurse with extensive obstetrical experience, I serve as a bridge between medical and physiological birth models. My role is to facilitate informed decision-making, support your self-advocacy, and help create an empowering birth environment. Through emotional reassurance, physical comfort measures, and evidence-based nursing guidance, I work to reduce fear and promote a positive experience.</p>
+        
+              <p>Every birth is unique. My goal is to walk beside you with professional expertise and respect—supporting your vision and your journey into parenthood.</p>
+            </ul>
           </div>
+        </section>
 
-          <div class="form-group form-row two-cols">
-            <div>
-              <label for="birthday">Birthday <span class="required-asterisk">*</span></label>
-              <input type="date" name="birthday" id="birthday" required>
-            </div>
-            <div>
-              <label for="due_date">Due Date <span class="required-asterisk">*</span></label>
-              <input type="date" name="due_date" id="due_date" required>
-            </div>
+        <section id="intake">
+          <div class="cta-buttons" style="display: flex; gap: 20px; justify-content: center; margin-top: 30px; flex-wrap: wrap;">
+            <a href="intake.html" class="btn-primary">New Client Intake</a>
+            <a href="https://your-jane-subdomain.janeapp.com" target="_blank" class="btn-primary">Book via Jane App</a>
           </div>
+        </section>
 
-          <div class="form-group form-row three-cols">
-            <div>
-              <label for="care_provider">Care Provider <span class="required-asterisk">*</span></label>
-              <input type="text" name="care_provider" id="care_provider" placeholder="Care Provider" required>
-            </div>
-            <div>
-              <label for="gravida">Gravida <span class="required-asterisk">*</span></label>
-              <input type="number" name="gravida" id="gravida" min="0" max="20" placeholder="Gravida" required>
-            </div>
-            <div>
-              <label for="para">Para <span class="required-asterisk">*</span></label>
-              <input type="number" name="para" id="para" min="0" max="20" placeholder="Para" required>
-            </div>
-          </div>
-
-          <div>
-            <label for="delivery_location">Where do you plan to deliver? <span class="required-asterisk">*</span></label>
-            <textarea name="delivery_location" id="delivery_location" placeholder="Where do you plan to deliver?" required></textarea>
-          </div>
-
-          <div>
-            <label for="health_history">Health history <span class="required-asterisk">*</span></label>
-            <textarea name="health_history" id="health_history" placeholder="Health history" required></textarea>
-          </div>
-
-          <div>
-            <label for="what_appeals">What appeals to you about Elevare? <span class="required-asterisk">*</span></label>
-            <textarea name="what_appeals" id="what_appeals" placeholder="What appeals to you about Elevare?" required></textarea>
-          </div>
-
-          <div>
-            <label for="other_questions">Any other questions</label>
-            <textarea name="other_questions" id="other_questions" placeholder="Any other questions"></textarea>
-          </div>
-
-          <button type="submit" class="btn-submit" id="submitBtn">Send</button>
-          <div id="formStatus" role="status" aria-live="polite" style="margin-top:10px;"></div>
-        </form>
-      </div>
-    </section>
     <!-- Mobile sticky action bar for Book Now (shows only on small screens) -->
     <div class="mobile-action-bar" aria-hidden="true">
       <a href="#intake" class="btn-submit mobile-book">Book Now</a>
@@ -343,6 +299,58 @@
     });
   })();
 </script>
-// setup on mini pc 1
+<script>
+  const container = document.querySelector('.testimonial-container');
+  const cards = document.querySelectorAll('.testimonial-card');
+
+  function currentSlide(direction) {
+    const scrollAmount = container.offsetWidth;
+    const isAtEnd = container.scrollLeft + container.offsetWidth >= container.scrollWidth - 10;
+    const isAtStart = container.scrollLeft <= 10;
+
+    if (direction === 'next') {
+      if (isAtEnd) {
+        container.scrollTo({ left: 0, behavior: 'smooth' });
+      } else {
+        container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+      }
+    } else {
+      if (isAtStart) {
+        container.scrollTo({ left: container.scrollWidth, behavior: 'smooth' });
+      } else {
+        container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+      }
+    }
+  }
+  function toggleText(btn) {
+  const span = btn.previousElementSibling.querySelector('.full-text');
+  if (span.style.display === "none") {
+    span.style.display = "inline";
+    btn.innerText = " Read Less";
+  } else {
+    span.style.display = "none";
+    btn.innerText = " Read More";
+  }
+}
+// Function to handle the fade-in effect on scroll
+const revealSections = () => {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      // If the section is at least 10% visible
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+      }
+    });
+  }, { threshold: 0.1 }); // 0.1 means 10% visibility triggers the animation
+
+  // Tell the observer to watch every element with the 'reveal' class
+  document.querySelectorAll('.reveal').forEach(section => {
+    observer.observe(section);
+  });
+};
+
+// Run the function
+revealSections();
+</script>
 </body>
 </html>

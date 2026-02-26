@@ -415,8 +415,13 @@ select {
   /* Keep adequate space at the bottom to avoid overlap with the mobile action bar */
   body { padding-bottom: 100px; }
 
-  /* Hide the navbar 'Book Now' link on small screens (we show bottom bar instead) */
-  .nav-links a.nav-book { display: none; }
+  .nav-container a.nav-book {
+  display: inline-block; /* Force it to stay visible */
+  margin-left: auto;     /* Pushes it toward the right */
+  margin-right: 15px;    /* Gives it space before the hamburger icon */
+  font-size: 0.85rem;    /* Slightly smaller to fit mobile screens */
+  padding: 8px 12px;
+}
 
   /* Show mobile action bar */
   .mobile-action-bar { display: flex; }
@@ -529,4 +534,83 @@ select {
 
   .form-group { flex-direction: column; }
   header h1 { font-size: 2.2rem; }
+}
+/* --- Modern Swiping Testimonials (Final Version) --- */
+.testimonial-container {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  gap: 0; /* Remove gap so cards align perfectly for the arrows */
+  padding: 20px 0;
+  scrollbar-width: none;
+  -ms-overflow-style: none; /* For Internet Explorer */
+}
+
+.testimonial-container::-webkit-scrollbar {
+  display: none; /* Hide scrollbar for Chrome/Safari */
+}
+
+.testimonial-card {
+  flex: 0 0 100%; /* Each card is exactly the width of the container */
+  scroll-snap-align: start;
+  background: white;
+  padding: 60px 40px; 
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  text-align: center;
+  box-sizing: border-box; /* Ensures padding doesn't push the card wider than 100% */
+}
+
+.quote {
+  font-style: italic;
+  color: var(--primary-dark);
+  margin-bottom: 20px;
+}
+
+.author {
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.9rem;
+}
+
+/* Styling for the Intake Form button in the Nav Bar */
+.nav-book {
+  background: linear-gradient(180deg, var(--primary), var(--primary-dark));
+  color: white !important; /* Ensures text stays white */
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: 800;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: transform 0.2s ease;
+  white-space: nowrap; /* Prevents text from wrapping */
+}
+
+.nav-book:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(60, 174, 163, 0.2);
+}
+
+/* Specific mobile tweak to keep it tidy next to the hamburger */
+@media (max-width: 768px) {
+  .nav-book {
+    margin-left: auto; /* Pushes it to the right, next to hamburger */
+    margin-right: 15px; /* Gap between button and hamburger bars */
+    font-size: 0.8rem;
+    padding: 6px 12px;
+  }
+}
+
+/* --- Fade-In Animation Styles --- */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px); /* Increased from 30px for more "lift" */
+  transition: all 1.2s cubic-bezier(0.2, 1, 0.3, 1); /* The "Apple" secret sauce */
+}
+
+/* The class that JavaScript will add when you scroll */
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
 }
