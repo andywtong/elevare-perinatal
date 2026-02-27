@@ -148,10 +148,22 @@ header {
   align-items: center;
   justify-content: center;
   text-align: center;
+  overflow: hidden; /* Keeps the zoom contained */
+  position: relative;
   background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
-              url('images/header.jpg') no-repeat center center/cover;
+              url('images/header.jpg') no-repeat calc(50% - 3.5em) center/cover;
   color: white;
   padding: 0 20px;
+  animation: slowPan 1.5s ease-out 1 forwards; /* The "Umph" */
+}
+
+@keyframes slowPan {
+  from { 
+    transform: scale(1); 
+  }
+  to { 
+    transform: scale(1.08); /* Only a tiny 8% growth */
+  }
 }
 
 header h1 { font-size: 3.5rem; margin-bottom: 0; }
@@ -299,14 +311,42 @@ input, textarea, select {
 /* ------------------------
    Mobile Responsiveness
 ------------------------ */
+/* ------------------------
+   Mobile Responsiveness
+------------------------ */
+
+/* 1. Hide the mobile-only button on Desktop */
+.mobile-only-intake {
+  display: none;
+}
+
+/* 2. Media Query for Mobile (900px and down) */
 @media (max-width: 900px) {
   body { 
-    padding-top: 150px; /* Adjusted for larger mobile logo */
+    padding-top: 150px; 
     padding-bottom: 100px; 
   }
 
+  /* Hide the top-left button on mobile */
+  .desktop-only {
+    display: none !important;
+  }
+
+  /* Show and style the button inside the hamburger menu */
+  .mobile-only-intake {
+    display: block; 
+    background-color: var(--primary);
+    color: white !important;
+    padding: 15px 30px;
+    border-radius: 10px;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 30px; 
+    width: 80%; 
+  }
+
   .nav-logo {
-    height: 65px; /* 1.5x larger than desktop (80px * 1.5) */
+    height: 75px; 
   }
 
   .hamburger { display: flex; }
@@ -340,4 +380,31 @@ input, textarea, select {
   header h1 { font-size: 2.2rem; }
   
   body.menu-open { overflow: hidden; }
+}
+
+/* --- Button Loading Effect --- */
+.btn-primary, .nav-book, .mobile-only-intake {
+  position: relative;
+  overflow: hidden; 
+}
+
+.btn-primary::after, .nav-book::after, .mobile-only-intake::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%; 
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  transition: none;
+}
+
+.btn-loading::after {
+  left: 100%; 
+  transition: left 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-loading {
+  filter: brightness(0.95);
+  transform: scale(0.98);
 }

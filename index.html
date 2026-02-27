@@ -17,7 +17,7 @@
   <div class="nav-container">
     
     <div class="nav-zone left">
-      <a href="intake.html" class="nav-book">Intake Form</a>
+      <a href="intake.html" class="nav-book desktop-only">Intake Form</a>
     </div>
 
     <div class="nav-zone center">
@@ -28,6 +28,8 @@
 
     <div class="nav-zone right">
       <div class="nav-links" id="nav-links">
+        <a href="intake.html" class="mobile-only-intake">Intake Form</a>
+        
         <a href="#rn-care">RN-Led Care</a>
         <a href="#services">Services</a>
         <a href="#testimonials">Testimonials</a>
@@ -401,7 +403,23 @@ container.addEventListener('scroll', () => {
     });
   }, 200);
 });
-
+// Cutting-edge button feedback
+document.querySelectorAll('.btn-primary, .nav-book, .mobile-only-intake').forEach(button => {
+  button.addEventListener('click', function(e) {
+    const href = this.getAttribute('href');
+    
+    // Only trigger for links going to other pages (like intake.html)
+    if (href && !href.startsWith('#') && !href.startsWith('http')) {
+      e.preventDefault();
+      
+      this.classList.add('btn-loading');
+      
+      setTimeout(() => {
+        window.location.href = href;
+      }, 550); // Half-second pause to see the light wash across
+    }
+  });
+});
 </script>
 </body>
 </html>
