@@ -92,14 +92,27 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; text-align: center; }
   color: var(--primary-dark);
 }
 
-.nav-book {
-  background: linear-gradient(180deg, var(--primary), var(--primary-dark));
-  color: white !important;
-  padding: 10px 14px;
-  border-radius: 10px;
-  font-weight: 800;
+.nav-book, 
+.nav-book:visited, 
+.nav-book:link {
+  background: transparent;
+  color: var(--primary-dark) !important; /* Force it to stay teal */
+  padding: 8px 16px;
+  border: 1.5px solid var(--primary);
+  border-radius: 8px;
+  font-weight: 700;
   text-decoration: none;
   white-space: nowrap;
+  font-size: 0.85rem;
+  transition: all 0.3s ease;
+  display: inline-block; /* Helps with alignment */
+}
+
+.nav-book:hover {
+  background-color: var(--primary) !important;
+  color: white !important;
+  transform: translateY(-1px);
+  border-color: var(--primary-dark);
 }
 
 /* Hamburger */
@@ -293,7 +306,7 @@ input, textarea, select {
   }
 
   .nav-logo {
-    height: 120px; /* 1.5x larger than desktop (80px * 1.5) */
+    height: 65px; /* 1.5x larger than desktop (80px * 1.5) */
   }
 
   .hamburger { display: flex; }
