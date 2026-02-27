@@ -11,91 +11,98 @@
 
 html { scroll-behavior: smooth; }
 
-/* Make sizing easier to manage for responsive form fields */
 *, *::before, *::after { box-sizing: border-box; }
+
 body {
   margin: 0;
   font-family: 'Lato', sans-serif;
   color: var(--text-main);
   line-height: 1.8;
   background-color: var(--bg-light);
+  padding-top: 110px; /* Space for desktop nav */
 }
 
 h1, h2, h3 { font-family: 'Playfair Display', serif; text-align: center; }
 
 /* ------------------------
-   Navigation
+   Three-Zone Navigation
 ------------------------ */
 .main-nav {
-  position: fixed !important; /* Force it for Chrome */
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  background: #ffffff; /* Use solid hex instead of 'white' */
+  background: #ffffff;
   padding: 10px 0;
   box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-  z-index: 9999; /* Crank this up to stay above everything */
-  
-  /* This tells Chrome: 'Do not scroll this with the page' */
-  isolation: isolate; 
-  -webkit-transform: translate3d(0,0,0);
-  transform: translate3d(0,0,0);
-}
-
-/* IMPORTANT: Because 'fixed' removes the nav from the page flow, 
-   we must push the rest of the site down so it doesn't hide under the nav. */
-body {
-  padding-top: 120px; /* Adjust this to match your desktop logo height */
-}
-
-@media (max-width: 900px) {
-  body {
-    padding-top: 80px; /* Adjust this for the smaller mobile logo */
-  }
+  z-index: 9999;
 }
 
 .nav-container {
-  max-width: 1100px;
-  margin: 0 auto;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
+  max-width: 1300px;
+  margin: 0 auto;
   padding: 0 20px;
 }
 
-.logo { font-size: 1.5rem; font-weight: 800; color: var(--primary-dark); }
+.nav-zone {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.nav-zone.left { justify-content: flex-start; }
+.nav-zone.center { justify-content: center; }
+.nav-zone.right { justify-content: flex-end; gap: 20px; }
+
+/* Logo - 1.5x larger logic */
+.nav-logo {
+  height: 80px; /* Desktop Size */
+  width: auto;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.logo-link:hover .nav-logo {
+  transform: scale(1.05);
+}
+
+/* Nav Link Styling */
+.nav-links {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
 
 .nav-links a {
   text-decoration: none;
   color: var(--text-main);
-  margin-left: 10px;
-  padding: 8px 16px; /* Space for the highlight box */
-  border-radius: 8px; /* Slightly rounded corners */
+  padding: 8px 16px;
+  border-radius: 8px;
   font-weight: 700;
-  transition: all 0.3s ease; /* Smooth transition for color changes */
+  transition: all 0.3s ease;
+  white-space: nowrap;
 }
 
-/* The highlight box when a section is active */
 .nav-links a.active {
-  background-color: #e0f2f1; /* Lighter than #3caea3 */
-  color: var(--primary-dark); /* Contrasting color */
+  background-color: #e0f2f1;
+  color: var(--primary-dark);
 }
 
-/* Services Hover Animation */
-.service-card {
-  background: white;
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-  text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth lift */
+.nav-book {
+  background: linear-gradient(180deg, var(--primary), var(--primary-dark));
+  color: white !important;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-weight: 800;
+  text-decoration: none;
+  white-space: nowrap;
 }
 
-.service-card:hover {
-  transform: translateY(-10px) scale(1.02); /* Gets slightly bigger and lifts up */
-  box-shadow: 0 12px 20px rgba(0,0,0,0.1); /* Deeper shadow on hover */
-}
-
+/* Hamburger */
 .hamburger {
   display: none;
   flex-direction: column;
@@ -103,8 +110,7 @@ body {
   background: none;
   border: none;
   gap: 6px;
-  z-index: 1001; /* Stay above the menu */
-  transition: all 0.3s ease;
+  z-index: 1001;
 }
 
 .bar {
@@ -115,38 +121,12 @@ body {
   border-radius: 10px;
 }
 
-/* The Animation: Turning into an X */
-.hamburger.active .bar:nth-child(1) {
-  transform: translateY(9px) rotate(45deg);
-}
-
-.hamburger.active .bar:nth-child(2) {
-  opacity: 0; /* Hide the middle bar */
-}
-
-.hamburger.active .bar:nth-child(3) {
-  transform: translateY(-9px) rotate(-45deg);
-}
+.hamburger.active .bar:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+.hamburger.active .bar:nth-child(2) { opacity: 0; }
+.hamburger.active .bar:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
 
 /* ------------------------
-   Sticky Floating Button
------------------------- */
-.floating-btn {
-  position: fixed;
-  bottom: 25px;
-  right: 25px;
-  background-color: var(--primary);
-  color: white;
-  padding: 15px 25px;
-  border-radius: 50px;
-  text-decoration: none;
-  font-weight: bold;
-  z-index: 9999; /* Higher than everything else */
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-}
-
-/* ------------------------
-   Hero (60vh as requested)
+   Hero & Layout
 ------------------------ */
 header {
   height: 60vh;
@@ -173,31 +153,19 @@ header h1 { font-size: 3.5rem; margin-bottom: 0; }
   font-weight: bold;
 }
 
-/* ------------------------
-   Section Layouts
------------------------- */
 section { padding: 80px 20px; }
-
 .alt-bg { background-color: var(--bg-alt); }
+.narrow-content { max-width: 700px; margin: 0 auto; }
+.wide-content { max-width: 1100px; margin: 0 auto; }
 
-/* The fix for text width */
-.narrow-content {
-  max-width: 700px;
-  margin: 0 auto;
-}
-
-.wide-content {
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-/* --- Services Enhancements --- */
-
+/* ------------------------
+   Services
+------------------------ */
 .services-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 30px;
-  align-items: start; /* Prevents cards from stretching unevenly */
+  align-items: start;
 }
 
 .service-card {
@@ -229,274 +197,64 @@ section { padding: 80px 20px; }
   z-index: 0;
 }
 
-.service-card h3, .service-card p {
-  position: relative;
-  z-index: 1;
-}
+details { margin-top: 25px; border-top: 1px solid #eee; padding-top: 15px; text-align: left; }
+summary { list-style: none; font-weight: 700; font-size: 0.9rem; color: var(--primary-dark); cursor: pointer; display: flex; justify-content: center; align-items: center; outline: none; }
+summary::-webkit-details-marker { display: none; }
+summary::after { content: '+'; margin-left: 10px; font-size: 1.2rem; transition: transform 0.3s ease; }
+details[open] summary::after { transform: rotate(45deg); }
 
-/* --- The Details/Accordion Style --- */
-
-details {
-  margin-top: 25px;
-  border-top: 1px solid #eee;
-  padding-top: 15px;
-  text-align: left;
-}
-
-summary {
-  list-style: none;
-  font-weight: 700;
-  font-size: 0.9rem;
-  color: var(--primary-dark);
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  outline: none;
-  transition: color 0.2s;
-}
-
-summary:hover {
-  color: var(--primary);
-}
-
-/* Custom indicator instead of the default arrow */
-summary::after {
-  content: '+';
-  margin-left: 10px;
-  font-size: 1.2rem;
-  transition: transform 0.3s ease;
-}
-
-details[open] summary::after {
-  transform: rotate(45deg); /* Turns the + into an x */
-}
-
-/* Removing the default Safari triangle */
-summary::-webkit-details-marker {
-  display: none;
-}
-
-.service-list {
-  margin: 15px 0 0 0;
-  padding: 0 0 0 15px;
-  list-style-type: none;
-}
-
-.service-list li {
-  font-size: 0.85rem;
-  margin-bottom: 8px;
-  position: relative;
-  line-height: 1.4;
-  color: var(--text-main);
-}
-
-/* Small teal bullet points */
-.service-list li::before {
-  content: "•";
-  color: var(--primary);
-  font-weight: bold;
-  display: inline-block;
-  width: 1em;
-  margin-left: -1em;
-}
-
-/* Mobile Tweak: Ensure cards don't feel too cramped */
-@media (max-width: 600px) {
-  .service-card {
-    padding: 30px 20px;
-  }
-}
+.service-list { margin: 15px 0 0 0; padding: 0 0 0 15px; list-style-type: none; }
+.service-list li { font-size: 0.85rem; margin-bottom: 8px; position: relative; line-height: 1.4; color: var(--text-main); }
+.service-list li::before { content: "•"; color: var(--primary); font-weight: bold; display: inline-block; width: 1em; margin-left: -1em; }
 
 /* ------------------------
-   Forms
+   Testimonials
 ------------------------ */
-.contact-form {
+.testimonial-wrapper { position: relative; display: flex; align-items: center; }
+.testimonial-container {
   display: flex;
-  flex-direction: column;
-  gap: 15px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  gap: 0;
+  padding: 20px 0;
+  scrollbar-width: none;
 }
-
-.form-group { display: flex; gap: 15px; }
-
-input, textarea {
-  width: 100%;
-  padding: 15px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  font-family: inherit;
-}
-
-/* Default textarea sizing for small/comment fields */
-textarea {
-  max-width: 100%;
-  min-height: 80px;
-  overflow: auto;
-  font-family: inherit;
-}
-
-/* Larger intake textareas: remove manual resize handle, soft border, padding, and larger min-height */
-textarea#delivery_location,
-textarea#health_history,
-textarea#what_appeals,
-textarea#other_questions {
-  resize: none; /* remove the corner resize handle */
-  min-height: 120px; /* substantial clinical note area */
-  height: auto;
-  max-width: 100%;
-  overflow: auto;
-  padding: 18px; /* slightly larger padding for comfort */
-  border: 1px solid #e6eef0; /* soft, professional border */
-  border-radius: 8px;
-  background: #ffffff;
-  box-shadow: inset 0 1px 0 rgba(0,0,0,0.02);
-}
-
-/* Ensure form groups wrap cleanly on small screens and don't overflow */
-.form-group {
-  display: flex;
-  gap: 15px;
-  flex-wrap: wrap;
-}
-
-/* Make select elements match inputs visually */
-select {
-  width: 100%;
-  padding: 15px;
-  border: 1px solid #ddd;
-  border-radius: 25px;
+.testimonial-container::-webkit-scrollbar { display: none; }
+.testimonial-card {
+  flex: 0 0 100%;
+  scroll-snap-align: start;
   background: white;
-  font-family: inherit;
+  padding: 60px 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  text-align: center;
 }
-
-#intake select {
-  border-color: #e6eef0;
-  border-radius: 25px;
-  padding: 15px 18px;
-  background: white;
-}
-
-#intake select:focus {
-  outline: none;
-  border-color: var(--primary);
-  box-shadow: 0 8px 24px rgba(60,174,163,0.12);
-}
+.quote { font-style: italic; color: var(--primary-dark); margin-bottom: 20px; }
+.author { font-weight: 700; text-transform: uppercase; letter-spacing: 1px; font-size: 0.9rem; }
 
 /* ------------------------
-   Intake form — soft, clinical-warm styles
-   ------------------------ */
+   Forms & Intake
+------------------------ */
+input, textarea, select {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-family: inherit;
+}
+
 #intake .contact-form {
-  background: #f7fbfa; /* very subtle teal-tinted off-white */
+  background: #f7fbfa;
   padding: 28px;
   border-radius: 20px;
   box-shadow: 0 10px 30px rgba(45,138,129,0.06);
   border: 1px solid rgba(45,138,129,0.05);
 }
 
-#intake label {
-  display: block;
-  font-weight: 600;
-  margin-bottom: 8px;
-  color: var(--text-main);
-  font-size: 0.95rem;
-}
-
-/* Style for required asterisk in red */
-.required-asterisk {
-  color: #d32f2f;
-  font-weight: 700;
-  margin-left: 2px;
-}
-
-#intake input,
-#intake textarea {
-  border: 1px solid #e6eef0; /* soft grey */
-  padding: 15px; /* ensure comfortable inner spacing */
-  border-radius: 12px;
-  background: white;
-  width: 100%;
-  font-family: inherit;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-#intake input,
-#intake select {
-  min-height: 48px;
-}
-
-#intake input:focus,
-#intake textarea:focus {
-  outline: none;
-  border-color: var(--primary);
-  box-shadow: 0 8px 24px rgba(60,174,163,0.12);
-}
-
-/* Responsive grid for form rows */
-.form-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; align-items: start; }
-
-/* Helpers for rows with different column counts */
+.form-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
 .form-row.two-cols { grid-template-columns: repeat(2, 1fr); }
-.form-row.three-cols { grid-template-columns: repeat(3, 1fr); }
 
-@media (max-width: 768px) {
-  /* On mobile use two columns by default for compact side-by-side fields */
-  .form-row { grid-template-columns: repeat(2, 1fr); }
-
-  /* For rows that should be one-per-row on very small screens, the specific class can override (not used here) */
-
-  /* For the 3-column row (care provider, gravida, para) make care provider span full width and keep gravida/para side-by-side */
-  .form-row.three-cols > div:first-child { grid-column: 1 / -1; }
-
-  /* Keep adequate space at the bottom to avoid overlap with the mobile action bar */
-  body { padding-bottom: 100px; }
-
-  .nav-container a.nav-book {
-  display: inline-block; /* Force it to stay visible */
-  margin-left: auto;     /* Pushes it toward the right */
-  margin-right: 15px;    /* Gives it space before the hamburger icon */
-  font-size: 0.85rem;    /* Slightly smaller to fit mobile screens */
-  padding: 8px 12px;
-}
-
-  /* Show mobile action bar */
-  .mobile-action-bar { display: flex; }
-}
-
-/* Navbar Book Now button styling (desktop) */
-.nav-links a.nav-book {
-  background: linear-gradient(180deg, var(--primary), var(--primary-dark));
-  color: white;
-  padding: 10px 14px;
-  border-radius: 10px;
-  font-weight: 800;
-}
-
-/* Mobile sticky action bar */
-.mobile-action-bar {
-  display: none;
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  justify-content: center;
-  padding: 12px 16px;
-  z-index: 9999;
-  background: rgba(255,255,255,0.55);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  box-shadow: 0 -8px 30px rgba(0,0,0,0.08);
-}
-
-.mobile-action-bar .mobile-book {
-  width: 100%;
-  max-width: 520px;
-  border-radius: 12px;
-  text-align: center;
-}
-
-/* Circle-style radio options for Gravida / Para */
-.circle-options { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
-.circle-option { cursor: pointer; }
+.circle-options { display: flex; gap: 8px; }
 .circle-option input { display: none; }
 .circle-option span {
   display: inline-flex;
@@ -507,147 +265,40 @@ select {
   border-radius: 50%;
   border: 1px solid #e0e6e6;
   background: white;
-  color: var(--text-main);
-  font-weight: 700;
+  cursor: pointer;
 }
 .circle-option input:checked + span {
   background: var(--primary);
   color: white;
-  border-color: var(--primary-dark);
-  box-shadow: 0 8px 20px rgba(60,174,163,0.16);
-  transform: translateY(-2px);
-}
-
-/* CTA button styling */
-.btn-submit {
-  background: linear-gradient(180deg, var(--primary), var(--primary-dark));
-  color: white;
-  border: none;
-  padding: 14px 20px;
-  font-weight: 800;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: transform 0.12s ease, box-shadow 0.12s ease;
-}
-.btn-submit:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 18px 40px rgba(45,138,129,0.12);
-}
-
-.btn-submit {
-  background-color: var(--primary-dark);
-  color: white;
-  border: none;
-  padding: 15px;
-  font-weight: bold;
-  cursor: pointer;
-  border-radius: 8px;
-}
-
-
-/* --- Modern Swiping Testimonials (Final Version) --- */
-.testimonial-container {
-  display: flex;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  gap: 0; /* Remove gap so cards align perfectly for the arrows */
-  padding: 20px 0;
-  scrollbar-width: none;
-  -ms-overflow-style: none; /* For Internet Explorer */
-}
-
-.testimonial-container::-webkit-scrollbar {
-  display: none; /* Hide scrollbar for Chrome/Safari */
-}
-
-.testimonial-card {
-  flex: 0 0 100%; /* Each card is exactly the width of the container */
-  scroll-snap-align: start;
-  background: white;
-  padding: 60px 40px; 
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-  text-align: center;
-  box-sizing: border-box; /* Ensures padding doesn't push the card wider than 100% */
-}
-
-.quote {
-  font-style: italic;
-  color: var(--primary-dark);
-  margin-bottom: 20px;
-}
-
-.author {
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  font-size: 0.9rem;
-}
-
-/* Styling for the Intake Form button in the Nav Bar */
-.nav-book {
-  background: linear-gradient(180deg, var(--primary), var(--primary-dark));
-  color: white !important; /* Ensures text stays white */
-  padding: 8px 16px;
-  border-radius: 8px;
-  font-weight: 800;
-  text-decoration: none;
-  font-size: 0.9rem;
-  transition: transform 0.2s ease;
-  white-space: nowrap; /* Prevents text from wrapping */
-}
-
-.nav-book:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 10px rgba(60, 174, 163, 0.2);
-}
-
-
-
-/* --- Fade-In Animation Styles --- */
-.reveal {
-  opacity: 0;
-  transform: translateY(80px); /* Increased from 30px for more "lift" */
-  transition: all 1.8s cubic-bezier(0.2, 1, 0.3, 1); /* The "Apple" secret sauce */
-}
-
-/* The class that JavaScript will add when you scroll */
-.reveal.active {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.nav-logo {
-  height: 100px;    /* This keeps the height consistent with your nav bar */
-  width: auto;     /* This keeps the logo from stretching */
-  display: block;
-  transition: transform 0.3s ease;
-}
-
-.logo-link:hover .nav-logo {
-  transform: scale(1.05); /* A subtle "Apple-style" lift when hovered */
 }
 
 /* ------------------------
-   Mobile Responsiveness (Consolidated to 900px)
+   Animations
+------------------------ */
+.reveal {
+  opacity: 0;
+  transform: translateY(80px);
+  transition: all 1.8s cubic-bezier(0.2, 1, 0.3, 1);
+}
+.reveal.active { opacity: 1; transform: translateY(0); }
+
+/* ------------------------
+   Mobile Responsiveness
 ------------------------ */
 @media (max-width: 900px) {
   body { 
-    padding-top: 80px; 
+    padding-top: 150px; /* Adjusted for larger mobile logo */
     padding-bottom: 100px; 
   }
 
   .nav-logo {
-    height: 60px;
-    width: auto;
+    height: 120px; /* 1.5x larger than desktop (80px * 1.5) */
   }
 
-  .hamburger { 
-    display: flex; 
-  }
+  .hamburger { display: flex; }
 
   .nav-links {
-    display: none; /* Default hidden */
+    display: none; 
     visibility: hidden;
     opacity: 0;
     position: fixed;
@@ -660,46 +311,19 @@ select {
     justify-content: center;
     align-items: center;
     z-index: 1000;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.4s ease;
   }
 
   .nav-links.show {
-    display: flex; /* Shown when toggled */
+    display: flex;
     visibility: visible;
     opacity: 1;
   }
 
-  .nav-links a { 
-    margin: 15px 0; 
-    font-size: 1.3rem;
-    padding: 10px;
-  }
+  .nav-links a { font-size: 1.3rem; margin: 15px 0; }
 
-  .nav-container a.nav-book {
-    display: inline-block;
-    margin-left: auto;
-    margin-right: 15px;
-    font-size: 0.8rem;
-    padding: 6px 12px;
-  }
-
-  .form-row { grid-template-columns: repeat(2, 1fr); }
-  .form-group { flex-direction: column; }
+  .form-row { grid-template-columns: 1fr; }
   header h1 { font-size: 2.2rem; }
-  .mobile-action-bar { display: flex; }
   
-  body.menu-open {
-    overflow: hidden;
-  }
-}
-
-/* Custom 'Tight' zone for mid-sized screens */
-@media (max-width: 1100px) and (min-width: 901px) {
-  .nav-links a {
-    margin-left: 5px;
-    padding: 6px 10px;
-    font-size: 0.85rem;
-  }
-  .nav-container { padding: 0 10px; }
-  .nav-book { padding: 6px 10px; }
+  body.menu-open { overflow: hidden; }
 }
