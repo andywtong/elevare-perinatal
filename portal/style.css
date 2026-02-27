@@ -24,6 +24,14 @@ nav {
     display: flex;
     flex-direction: column;
     flex-shrink: 0;
+
+/* --- New Background Texture --- */
+    background-image: url('../images/tree_final.png'); /* You'll need to add an image file with this name */
+    background-repeat: no-repeat;
+    background-position: -150px 80%; /* Off-center and lower down */
+    background-size: 500px;         /* Scaled up so it's just a portion */
+    /*background-blend-mode: overlay; /* Blends with the white background */
+    opacity: 0.9;                   /* Adjust overall nav transparency if needed */
 }
 
 .logo { font-weight: 800; font-size: 1.25rem; margin-bottom: 2rem; color: var(--primary); text-decoration: none; }
@@ -53,7 +61,23 @@ main { flex-grow: 1; padding: 3rem; max-width: 900px; margin: 0 auto; width: 100
 /* Mobile Responsive */
 @media (max-width: 768px) {
     body { flex-direction: column; }
-    nav { width: 100%; border-right: none; border-bottom: 1px solid #e2e8f0; padding: 1rem; flex-direction: row; flex-wrap: wrap; box-sizing: border-box; }
+    
+    nav { 
+        width: 100%; 
+        border-right: none; 
+        border-bottom: 1px solid #e2e8f0; 
+        padding: 1rem; 
+        flex-direction: row; 
+        flex-wrap: wrap; 
+        box-sizing: border-box; 
+        
+        /* Moved inside the nav braces */
+        background-image: url('../images/tree_final.png');
+        background-size: 200px;      
+        background-position: 110% -40px; 
+        background-repeat: no-repeat;
+    }
+
     .logo { width: 100%; margin-bottom: 0.5rem; }
     nav div { width: 100%; margin-bottom: 0.5rem !important; }
     nav a { font-size: 0.9rem; padding: 0.5rem; }
