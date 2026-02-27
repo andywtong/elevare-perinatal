@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elevare | Team Portal</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --bg: #f8fafc;
+            --text: #1e293b;
+            --sidebar: #ffffff;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Sidebar Navigation */
+        nav {
+            width: 260px;
+            background: var(--sidebar);
+            border-right: 1px solid #e2e8f0;
+            padding: 2rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo { font-weight: 800; font-size: 1.25rem; margin-bottom: 2rem; color: var(--primary); text-decoration: none; }
+        
+        nav a {
+            text-decoration: none;
+            color: var(--text);
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+            margin-bottom: 0.5rem;
+            transition: 0.2s;
+        }
+
+        nav a:hover { background: #f1f5f9; }
+        .active { background: #eff6ff; color: var(--primary); font-weight: 600; }
+
+        /* Main Content Area */
+        main { flex-grow: 1; padding: 3rem; max-width: 900px; margin: 0 auto; }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            border-color: var(--primary);
+        }
+
+        h1 { font-size: 2.25rem; margin-bottom: 0.5rem; }
+        p.subtitle { color: #64748b; margin-bottom: 2rem; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="logo">ELEVARE TEAM</a>
+        
+        <div style="margin-bottom: 1.5rem;">
+            <input type="text" id="portalSearch" placeholder="Search portal..." 
+                   style="width: 100%; padding: 0.6rem; border-radius: 0.5rem; border: 1px solid #e2e8f0; font-size: 0.9rem; box-sizing: border-box;">
+        </div>
+
+        <a href="index.html" class="active">Dashboard</a>
+        <a href="procedures.html">Procedures</a>
+        <a href="learning.html">Learning</a>
+        <a href="policies.html">Policies</a>
+    </nav>
+
+    <main>
+        <h1>Welcome back</h1>
+        <p class="subtitle">Access your team resources and documentation.</p>
+
+        <div class="grid">
+            <div class="card" onclick="location.href='procedures.html'">
+                <h3>📖 Playbook</h3>
+                <p>Opening/Closing and daily operations.</p>
+            </div>
+            <div class="card" onclick="location.href='learning.html'">
+                <h3>🎓 Academy</h3>
+                <p>Training videos and onboarding.</p>
+            </div>
+            <div class="card" onclick="location.href='policies.html'">
+                <h3>🛡️ The Vault</h3>
+                <p>Official policies and legal docs.</p>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Central Search Engine Logic
+        const searchInput = document.getElementById('portalSearch');
+        
+        const portalIndex = [
+            { title: "Dashboard", url: "index.html", keywords: "home, main, start" },
+            { title: "Opening Procedures", url: "procedures.html", keywords: "morning, lights, office" },
+            { title: "Closing Procedures", url: "procedures.html", keywords: "night, alarm, locks" },
+            { title: "Client Portal Training", url: "learning.html", keywords: "video, software, clients" },
+            { title: "Employee Handbook", url: "policies.html", keywords: "hr, rules, privacy, legal" }
+        ];
+
+        searchInput.addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                const query = this.value.toLowerCase();
+                const match = portalIndex.find(page => 
+                    page.title.toLowerCase().includes(query) || 
+                    page.keywords.toLowerCase().includes(query)
+                );
+
+                if (match) {
+                    window.location.href = match.url;
+                } else {
+                    alert("No matching topic found. Try searching for 'Procedures' or 'Policies'.");
+                }
+            }
+        });
+    </script>
+</body>
+</html>
