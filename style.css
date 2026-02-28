@@ -352,9 +352,11 @@ input, textarea, select {
   .hamburger { display: flex; }
 
   .nav-links {
-    display: none; 
+    /* Change display: none to visibility/opacity */
+    display: flex; 
     visibility: hidden;
     opacity: 0;
+    
     position: fixed;
     top: 0;
     left: 0;
@@ -369,7 +371,6 @@ input, textarea, select {
   }
 
   .nav-links.show {
-    display: flex;
     visibility: visible;
     opacity: 1;
   }
@@ -392,17 +393,21 @@ input, textarea, select {
   .nav-links a { 
     font-size: 1.3rem; 
     margin: 15px 0; 
+    display: block;
+    
+    /* STARTING POSITION: Off-screen and invisible */
+    transform: translateX(100px); 
+    opacity: 0;
+    
+    /* ANIMATION SPEED: 0.8s makes it very easy to see */
+    transition: transform 0.8s cubic-bezier(0.2, 1, 0.3, 1), 
+                opacity 0.8s ease;
   }
 
-    /* NEW: Start off-screen and invisible */
-    transform: translateX(-50px);
-    opacity: 0;
-    transition: all 0.5s ease;
+  /* The standard layout stuff that follows */
   .form-row { grid-template-columns: 1fr; }
   header h1 { font-size: 2.2rem; }
-  
   body.menu-open { overflow: hidden; }
-}
 
 /* --- Button Loading Effect --- */
 .btn-primary, .nav-book, .mobile-only-intake {
