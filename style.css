@@ -4,9 +4,16 @@
 :root {
   --primary: #3caea3;
   --primary-dark: #2d8a81;
+
   --bg-light: #f9fbfb;
   --bg-alt: #eff7f6;
-  --text-main: #2c3e50;
+
+  --text-main: #24343d;
+  --text-soft: #5f6f78;
+
+  /* New Hero Variables */
+  --hero-cream: rgba(252, 248, 242, 0.9); /* soft elevated card */
+  --hero-dark-overlay: rgba(15, 25, 30, 0.55); /* anchor gradient */
 }
 
 html { scroll-behavior: smooth; }
@@ -143,40 +150,81 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; text-align: center; }
    Hero & Layout
 ------------------------ */
 header {
-  height: 60vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  overflow: hidden; /* Keeps the zoom contained */
+  height: 90vh;
+  min-height: 700px;
   position: relative;
-  background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
-              url('images/header.jpg') no-repeat calc(50% - 3.5em) center/cover;
-  color: white;
-  padding: 0 20px;
-  animation: slowPan 1.5s ease-out 1 forwards; /* The "Umph" */
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  padding: 0 8% 8% 8%;
+  overflow: hidden;
+
+  background:
+    linear-gradient(to right, rgba(10,20,25,0.35) 0%, rgba(10,20,25,0.15) 35%, rgba(10,20,25,0.05) 65%, transparent 85%),
+    url('images/lilien-home.png') no-repeat center center/cover;
+  /* stacking context so hero-content can sit above pseudo */
+  z-index: 1;
 }
 
-@keyframes slowPan {
-  from { 
-    transform: scale(1); 
-  }
-  to { 
-    transform: scale(1.08); /* Only a tiny 8% growth */
-  }
+/* Subtle grain texture */
+header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 40%;
+  background: linear-gradient(to top, rgba(252,248,242,0.85), transparent);
+  pointer-events: none;
+  z-index: 1;   /* keep the overlay behind the cream box */
 }
 
 header h1 { font-size: 3.5rem; margin-bottom: 0; }
 
 .btn-primary {
   display: inline-block;
-  margin-top: 20px;
-  padding: 12px 30px;
+  padding: 14px 34px;
   background-color: var(--primary);
   color: white;
   text-decoration: none;
-  border-radius: 5px;
-  font-weight: bold;
+  border-radius: 8px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(60,174,163,0.25);
+}
+
+.hero-content {
+  position: relative;
+  width: 100%;               /* stretch to available space */
+  max-width: 1100px;          /* reasonable cap so it doesn’t run full widescreen */
+  margin: 0 auto;             /* centre horizontally */
+  padding: 20px 24px;         /* keep some breathing room on the sides */
+  background: var(--hero-cream); /* soft cream variable already defined */
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  color: #1e2a30;
+  text-shadow: none; /* shadow unnecessary with light background */
+  z-index: 2;                 /* sit above header gradient/overlay */
+}
+
+.hero-content h1 {
+  font-size: 3.4rem;
+  line-height: 1.05;
+  margin-bottom: 18px;
+  color: #1e2a30;
+  letter-spacing: -0.5px;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  color: #4f5f67;
+  margin-bottom: 28px;
 }
 
 section { padding: 45px 20px; }
