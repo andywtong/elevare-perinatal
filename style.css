@@ -287,16 +287,37 @@ details[open] summary::after { transform: rotate(45deg); }
   scrollbar-width: none;
 }
 .testimonial-container::-webkit-scrollbar { display: none; }
+
+/* This centers the card but aligns the text inside it to the left */
+
+
 .testimonial-card {
   flex: 0 0 100%;
   scroll-snap-align: start;
+  text-align: left;
   background: white;
   padding: 60px 40px;
   border-radius: 20px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-  text-align: center;
 }
-.quote { font-style: italic; color: var(--primary-dark); margin-bottom: 20px; }
+
+/* This ensures the teal color and spacing look right with the new <div> structure */
+.quote {
+  color: var(--primary);
+  line-height: 1.7; /* Increased for better readability of long stories */
+  font-size: 1.1rem;
+  margin-bottom: 1.2rem;
+}
+
+/* Specific styling for the bolded 'Hook' inside the full text */
+.full-text strong {
+  display: block;
+  margin-top: 15px;
+  color: var(--primary);
+  border-left: 3px solid var(--primary); /* Optional: adds a nice vertical accent line */
+  padding-left: 15px;
+}
+
 .author { font-weight: 700; text-transform: uppercase; letter-spacing: 1px; font-size: 0.9rem; }
 
 /* ------------------------
