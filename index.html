@@ -165,22 +165,45 @@
             <button class="nav-arrow left" onclick="currentSlide('prev')">❮</button>
 
             <div class="testimonial-container">
+
               <div class="testimonial-card">
-                <p class="quote">"Amazing care and support — I felt truly understood!"</p>
-                <p class="author">— Sarah J.</p>
-              </div>
-              <div class="testimonial-card">
-                <p class="quote">"The guidance made my postpartum experience so much smoother."</p>
-                <p class="author">— Michael & Elena</p>
-              </div>
-              <div class="testimonial-card">
-                <p class="quote">
-                  I was so grateful and fortunate to have Li Lien attend both births of my children. With my first, I hadn't even realized I had transitioned. Not only did Li Lien notice, she was able to quickly 
-                  <span class="full-text" style="display: none;">confirm my progress and advocate for my safety and well being once I had arrived at the birthing center. I trusted her fully and felt complety calm and safe in her knowledge and expertise, and that gave me space to put all my focus on the birth. When it was time for the second birth, years later, she was there again offering a mix of common sense, comfort and encouragment that helped me gather the strength I needed to give birth. Li Lien is someone who you can feel loves their job fully, as it radiates from her. I *almost* would give birth again just to experience that again. I am forever grateful for her and her presence during that time of my life.  </span>"
-                </p>
+                <div class="quote">
+                  <span class="preview-text">
+                    <p>"As a nurse myself, I thought I would feel completely in control going into birth. But as a mother, everything feels different. You overthink. You second-guess. You worry. Lilien had this beautiful way of bringing me back to reality, normalizing what was happening, and gently reminding me that my body knew exactly what it was doing."</p>
+                  </span>
+                  
+                  <span class="full-text" style="display: none;">
+                    <p>Having Lilien as my doula during my labour was one of the greatest gifts of my entire birth experience. I truly cannot imagine having gone through it without her. What makes Lilien so unique is that she is not only an incredibly calm, grounded, and intuitive doula, she is also a highly experienced Labour & Delivery nurse. She has worked at all the major sites in Calgary and knows the teams, the systems, and the flow of each hospital so well.</p>
+                    
+                    <p>"Throughout my labour, Lilien was a steady presence. She brought such a sense of calm into the room. She knew exactly when to step in, when to guide, when to suggest positioning changes, and when to simply sit quietly and let me focus. Her knowledge made me feel safe, but her energy made me feel supported."</p>
+                    
+                    <p><strong>As a nurse myself, I thought I would feel completely in control going into birth. But as a mother, everything feels different. You overthink. You second-guess. You worry. Lilien had this beautiful way of bringing me back to reality, normalizing what was happening, and gently reminding me that my body knew exactly what it was doing.</strong></p>
+                    <p>She also supported my husband so well. Birth is intense for partners too, and she helped guide him in how to support me, which brought us closer and made the whole experience feel like a team effort. After our son was born, she came to our home to check in on us. That extra layer of support meant everything.</p>
+                    <p>I am forever grateful for her.</p> 
+                  </span>
+                </div>
                 <button class="read-more-btn" onclick="toggleText(this)" style="background: none; border: none; color: var(--primary); cursor: pointer; font-weight: bold; padding: 0;">Read More</button>
-                <p class="author">— Bonnie B.</p>
+                <p class="author">— BobbiLyn H. —</p>
               </div>
+
+              <div class="testimonial-card">
+                <div class="quote">
+                  <span class="preview-text">
+                    <p>"Li Lien is someone who you can feel loves their job fully, as it radiates from her. I *almost* would give birth again just to experience that again."</p>
+                  </span>
+                  
+                  <span class="full-text" style="display: none;">
+                    <p>I was so grateful and fortunate to have Li Lien attend both births of my children. With my first, I hadn't even realized I had transitioned. Not only did Li Lien notice, she was able to quickly confirm my progress and advocate for my safety and well being once I had arrived at the birthing center.</p>
+                    
+                    <p>I trusted her fully and felt completely calm and safe in her knowledge and expertise, and that gave me space to put all my focus on the birth. When it was time for the second birth, years later, she was there again offering a mix of common sense, comfort and encouragement that helped me gather the strength I needed to give birth.</p>
+
+                    <p><strong>"Li Lien is someone who you can feel loves their job fully, as it radiates from her. I *almost* would give birth again just to experience that again. I am forever grateful for her and her presence during that time of my life."</strong></p>
+                  </span>
+                </div>
+                <button class="read-more-btn" onclick="toggleText(this)" style="background: none; border: none; color: var(--primary); cursor: pointer; font-weight: bold; padding: 0;">Read More</button>
+                <p class="author">— Bonnie B. —</p>
+              </div>
+
             </div>
 
             <button class="nav-arrow right" onclick="currentSlide('next')">❯</button>
@@ -197,7 +220,7 @@
           Our team holds advanced certifications including CPR, NRP, Emergency Midwifery Skills Workshop, and Fundamentals of Fetal Health Surveillance, insured, current criminal record check.</p>
 
         <p><strong>Q: When is the best time to apply?</strong><br>
-          A: </p>Anytime during pregnancy or postpartum. Early booking allows us to build a trusting relationship and provide comprehensive, personalized support.</p>
+          A: Anytime during pregnancy or postpartum. Early booking allows us to build a trusting relationship and provide comprehensive, personalized support.</p>
 
         <p><strong>Q: How is RN-led support different from a traditional doula?</strong><br>
           A: We are licensed Registered Nurses who combine clinical expertise with continuous emotional and physical labor support, offering enhanced safety, assessment, advocacy, and continuity of care.</p>
@@ -387,14 +410,23 @@
     }
   }
   function toggleText(btn) {
-  const span = btn.previousElementSibling.querySelector('.full-text');
-  if (span.style.display === "none") {
-    span.style.display = "inline";
-    btn.innerText = " Read Less";
+  // Find the container (the .quote div)
+  const container = btn.previousElementSibling;
+  const preview = container.querySelector('.preview-text');
+  const full = container.querySelector('.full-text');
+
+  if (full.style.display === "none") {
+    // SHOW full, HIDE preview
+    full.style.display = "inline";
+    if(preview) preview.style.display = "none";
+    btn.innerText = "Read Less";
   } else {
-    span.style.display = "none";
-    btn.innerText = " Read More";
+    // HIDE full, SHOW preview
+    full.style.display = "none";
+    if(preview) preview.style.display = "inline";
+    btn.innerText = "Read More";
   }
+
 }
 // Function to handle the fade-in effect on scroll
 const revealSections = () => {
