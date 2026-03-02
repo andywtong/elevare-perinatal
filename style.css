@@ -370,6 +370,37 @@ input, textarea, select {
 
 /* 2. Media Query for Mobile (900px and down) */
 @media (max-width: 900px) {
+  
+  header {
+  height: 85vh;
+  min-height: 600px;
+  align-items: flex-end;
+  padding: 0 6% 10% 6%;
+}
+
+.hero-content {
+  max-width: 85%;
+  padding: 18px 20px;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+.hero-content h1 {
+  font-size: 1.9rem;
+  line-height: 1.1;
+  margin-bottom: 10px;
+}
+
+.hero-content p {
+  font-size: 0.95rem;
+  margin-bottom: 18px;
+}
+
+.btn-primary {
+  padding: 10px 22px;
+  font-size: 0.9rem;
+}
+  
   body { 
     padding-top: 150px; 
     padding-bottom: 100px; 
