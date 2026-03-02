@@ -63,7 +63,7 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; text-align: center; }
 
 .nav-zone.left { justify-content: flex-start; }
 .nav-zone.center { justify-content: center; }
-.nav-zone.right { justify-content: flex-end; gap: 20px; gap:20px; z-index: 10001;}
+.nav-zone.right { justify-content: flex-end; gap:20px; z-index: 10001;}
 
 /* Logo - 1.5x larger logic */
 .nav-logo {
@@ -150,17 +150,17 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; text-align: center; }
    Hero & Layout
 ------------------------ */
 header {
-  height: 90vh;
-  min-height: 700px;
   position: relative;
+  height: 80vh;
+  min-height: 600px;
   display: flex;
   align-items: flex-end;
-  justify-content: flex-start;
-  padding: 0 8% 8% 8%;
-  overflow: hidden;
+  color: #f7f2ed; /* warm off-white text */
+  background-size: cover;
+  background-position: center;
 
   background:
-    linear-gradient(to right, rgba(10,20,25,0.35) 0%, rgba(10,20,25,0.15) 35%, rgba(10,20,25,0.05) 65%, transparent 85%),
+
     url('images/lilien-home.png') no-repeat center center/cover;
   /* stacking context so hero-content can sit above pseudo */
   z-index: 1;
@@ -168,15 +168,16 @@ header {
 
 /* Subtle grain texture */
 header::after {
-  content: '';
+  content: "";
   position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 40%;
-  background: linear-gradient(to top, rgba(252,248,242,0.85), transparent);
-  pointer-events: none;
-  z-index: 1;   /* keep the overlay behind the cream box */
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(79, 58, 45, 0.85) 0%,   /* deep warm brown */
+    rgba(79, 58, 45, 0.65) 40%,
+    rgba(79, 58, 45, 0.0) 100%
+  );
+  z-index: 1;
 }
 
 header h1 { font-size: 3.5rem; margin-bottom: 0; }
@@ -184,46 +185,37 @@ header h1 { font-size: 3.5rem; margin-bottom: 0; }
 .btn-primary {
   display: inline-block;
   padding: 14px 34px;
-  background-color: var(--primary);
-  color: white;
+  background-color: #B38B71;
+  color: #ffffff;
   text-decoration: none;
-  border-radius: 8px;
-  font-weight: 700;
+  border-radius: 4px;
+  font-weight: 600;
   letter-spacing: 0.5px;
-  transition: all 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .btn-primary:hover {
-  background-color: var(--primary-dark);
-  transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(60,174,163,0.25);
+  background-color: #9f7860;
+  transform: translateY(-1px);
 }
 
 .hero-content {
   position: relative;
-  width: 100%;               /* stretch to available space */
-  max-width: 1100px;          /* reasonable cap so it doesn’t run full widescreen */
-  margin: 0 auto;             /* centre horizontally */
-  padding: 20px 24px;         /* keep some breathing room on the sides */
-  background: var(--hero-cream); /* soft cream variable already defined */
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-  color: #1e2a30;
-  text-shadow: none; /* shadow unnecessary with light background */
-  z-index: 2;                 /* sit above header gradient/overlay */
+  z-index: 2;
+  width: 100%;
+  padding: 60px 8%;
+  max-width: 1100px;
 }
 
 .hero-content h1 {
-  font-size: 3.4rem;
-  line-height: 1.05;
-  margin-bottom: 18px;
-  color: #1e2a30;
-  letter-spacing: -0.5px;
+  font-size: 2.8rem;
+  line-height: 1.1;
+  margin-bottom: 16px;
 }
 
 .hero-content p {
-  font-size: 1.2rem;
-  color: #4f5f67;
+  font-size: 1.1rem;
+  max-width: 600px;
   margin-bottom: 28px;
 }
 
@@ -370,35 +362,28 @@ input, textarea, select {
 
 /* 2. Media Query for Mobile (900px and down) */
 @media (max-width: 900px) {
-  
+
   header {
-  height: 85vh;
-  min-height: 600px;
-  align-items: flex-end;
-  padding: 0 6% 10% 6%;
-}
+    height: 75vh;
+    min-height: 520px;
+  }
 
-.hero-content {
-  max-width: 85%;
-  padding: 18px 20px;
-  border-radius: 10px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-}
+  .hero-content {
+    padding: 40px 6%;
+  }
 
-.hero-content h1 {
-  font-size: 1.9rem;
-  line-height: 1.1;
-  margin-bottom: 10px;
-}
+  .hero-content h1 {
+    font-size: 2rem;
+  }
 
-.hero-content p {
-  font-size: 0.95rem;
-  margin-bottom: 18px;
-}
+  .hero-content p {
+    font-size: 1rem;
+  }
 
-.btn-primary {
-  padding: 10px 22px;
-  font-size: 0.9rem;
+  .btn-primary {
+    padding: 10px 22px;
+    font-size: 0.9rem;
+  }
 }
   
   body { 
