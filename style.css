@@ -208,7 +208,8 @@ header h1 { font-size: 3.5rem; margin-bottom: 0; }
 }
 
 .hero-content h1 {
-  font-size: 2.8rem;
+  font-size: 3.3rem;
+  font-weight: 700;
   line-height: 1.1;
   margin-bottom: 16px;
 }
@@ -351,9 +352,6 @@ input, textarea, select {
 /* ------------------------
    Mobile Responsiveness
 ------------------------ */
-/* ------------------------
-   Mobile Responsiveness
------------------------- */
 
 /* 1. Hide the mobile-only button on Desktop */
 .mobile-only-intake {
@@ -373,7 +371,9 @@ input, textarea, select {
   }
 
   .hero-content h1 {
-    font-size: 2rem;
+    font-size: 2.9rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
   }
 
   .hero-content p {
@@ -384,7 +384,6 @@ input, textarea, select {
     padding: 10px 22px;
     font-size: 0.9rem;
   }
-}
   
   body { 
     padding-top: 150px; 
@@ -472,30 +471,31 @@ input, textarea, select {
   .form-row { grid-template-columns: 1fr; }
   header h1 { font-size: 2.2rem; }
   body.menu-open { overflow: hidden; }
+}
 
 /* --- Button Loading Effect --- */
-.btn-primary, .nav-book, .mobile-only-intake {
-  position: relative;
-  overflow: hidden; 
-}
+  .btn-primary, .nav-book, .mobile-only-intake {
+    position: relative;
+    overflow: hidden; 
+  }
 
-.btn-primary::after, .nav-book::after, .mobile-only-intake::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%; 
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-  transition: none;
-}
+  .btn-primary::after, .nav-book::after, .mobile-only-intake::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%; 
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    transition: none;
+  }
 
-.btn-loading::after {
-  left: 100%; 
-  transition: left 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-}
+  .btn-loading::after {
+    left: 100%; 
+    transition: left 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
 
-.btn-loading {
-  filter: brightness(0.95);
-  transform: scale(0.98);
-}
+  .btn-loading {
+    filter: brightness(0.95);
+    transform: scale(0.98);
+  }
