@@ -95,31 +95,30 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; text-align: center; }
 }
 
 .nav-links a.active {
-  background-color: #e0f2f1;
-  color: var(--primary-dark);
+  background-color: rgba(179, 139, 113, 0.1); /* Soft brown tint */
+  color: #B38B71; /* Main button brown */
 }
 
 .nav-book, 
 .nav-book:visited, 
 .nav-book:link {
-  background: transparent;
-  color: var(--primary-dark) !important; /* Force it to stay teal */
-  padding: 8px 16px;
-  border: 1.5px solid var(--primary);
-  border-radius: 8px;
-  font-weight: 700;
+  background-color: #B38B71; /* Matches .btn-primary */
+  color: #ffffff !important;
+  padding: 10px 24px;
+  border: none;
+  border-radius: 4px; /* Matches the sharper 4px radius of your main buttons */
+  font-weight: 600;
   text-decoration: none;
   white-space: nowrap;
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   transition: all 0.3s ease;
-  display: inline-block; /* Helps with alignment */
+  display: inline-block;
 }
 
 .nav-book:hover {
-  background-color: var(--primary) !important;
-  color: white !important;
+  background-color: #9f7860 !important; /* Matches .btn-primary:hover */
   transform: translateY(-1px);
-  border-color: var(--primary-dark);
+  box-shadow: 0 4px 12px rgba(179, 139, 113, 0.2);
 }
 
 /* Hamburger */
