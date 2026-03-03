@@ -418,7 +418,7 @@ input, textarea, select {
   /* Show and style the button inside the hamburger menu */
   .mobile-only-intake {
     display: block; 
-    background-color: var(--primary);
+    background-color: #b38b71;
     color: white !important;
     padding: 15px 30px;
     border-radius: 10px;
