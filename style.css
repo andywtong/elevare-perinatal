@@ -519,3 +519,58 @@ input, textarea, select {
     filter: brightness(0.95);
     transform: scale(0.98);
   }
+
+  /* ------------------------
+   Connect Section Split Layout
+------------------------ */
+.connect-split {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  flex-wrap: wrap;
+}
+
+.connect-image {
+  flex: 1;
+  min-width: 320px;
+}
+
+.connect-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  display: block;
+}
+
+.connect-info {
+  flex: 1;
+  min-width: 320px;
+  text-align: left;
+}
+
+.connect-info h2 {
+  text-align: left; /* Overriding general center alignment */
+  margin-top: 0;
+}
+
+.connect-cta-group {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-top: 25px;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 900px) {
+  .connect-split {
+    gap: 30px;
+    flex-direction: column; /* Image on top, text on bottom */
+  }
+  .connect-info h2, .connect-info p {
+    text-align: center;
+  }
+  .connect-cta-group {
+    justify-content: center;
+  }
+}
