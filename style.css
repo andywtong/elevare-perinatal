@@ -520,7 +520,7 @@ input, textarea, select {
     transform: scale(0.98);
   }
 
-  /* ------------------------
+/* ------------------------
    Connect Section Split Layout
 ------------------------ */
 .connect-split {
@@ -550,7 +550,7 @@ input, textarea, select {
 }
 
 .connect-info h2 {
-  text-align: left; /* Overriding general center alignment */
+  text-align: left; 
   margin-top: 0;
 }
 
@@ -561,15 +561,27 @@ input, textarea, select {
   margin-top: 25px;
 }
 
-/* Mobile Adjustments */
+/* Unified Mobile Adjustments for Connect */
 @media (max-width: 900px) {
   .connect-split {
-    gap: 30px;
-    flex-direction: column; /* Image on top, text on bottom */
+    gap: 25px;
+    flex-direction: column; 
   }
-  .connect-info h2, .connect-info p {
+  
+  .connect-image {
+    min-width: 100%;
+  }
+
+.connect-image img {
+  max-height: none; 
+  object-fit: contain; 
+}
+
+  .connect-info h2, 
+  .connect-info p {
     text-align: center;
   }
+  
   .connect-cta-group {
     justify-content: center;
   }
