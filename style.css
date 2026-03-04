@@ -256,6 +256,7 @@ section { padding: 45px 20px; }
 }
 
 .card-icon {
+  display: none;
   font-family: 'Playfair Display', serif;
   font-size: 3rem;
   color: var(--bg-alt);
@@ -588,4 +589,34 @@ input, textarea, select {
   .connect-cta-group {
     justify-content: center;
   }
+}
+
+/* ------------------------
+   Tree of Life Watermark
+------------------------ */
+.tree-watermark {
+  position: relative;
+  overflow: hidden; /* Keeps the tree inside the section */
+}
+
+.tree-watermark::before {
+  content: "";
+  position: absolute;
+  top: 27%;
+  right: -25%;
+  width: 700px;
+  height: 700px;
+  /* You will need a 'tree_final.png' or SVG in your images folder */
+  background-image: url('images/tree_final.png'); 
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.50; /* Extremely subtle—just a hint of a texture */
+  z-index: 0;
+  pointer-events: none; /* User can click through it */
+}
+
+/* Adjusting the section content to sit above the tree */
+.tree-watermark > div {
+  position: relative;
+  z-index: 1;
 }
