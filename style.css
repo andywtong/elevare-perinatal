@@ -148,31 +148,34 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; text-align: center; }
 /* ------------------------
    Hero & Layout
 ------------------------ */
+/* ------------------------
+   Hero & Layout
+------------------------ */
 header {
   position: relative;
   height: 80vh;
   min-height: 600px;
   display: flex;
   align-items: flex-end;
-  color: #f7f2ed; /* warm off-white text */
-  background-size: cover;
-  background-position: center;
-
-  background:
-
-    url('images/lilien-home.png') no-repeat center center/cover;
-  /* stacking context so hero-content can sit above pseudo */
+  color: #f7f2ed;
+  
+  /* Restrict Width to match other sections */
+  max-width: 1100px; 
+  margin: 0 auto;
+  overflow: hidden;    /* Keeps the pseudo-gradient inside the corners */
+  
+  background: url('images/lilien-home.png') no-repeat center center/cover;
   z-index: 1;
 }
 
-/* Subtle grain texture */
+/* Ensure the gradient overlay also respects the new width */
 header::after {
   content: "";
   position: absolute;
   inset: 0;
   background: linear-gradient(
     to top,
-    rgba(79, 58, 45, 0.85) 0%,   /* deep warm brown */
+    rgba(79, 58, 45, 0.85) 0%,
     rgba(79, 58, 45, 0.65) 40%,
     rgba(79, 58, 45, 0.0) 100%
   );
