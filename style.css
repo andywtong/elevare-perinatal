@@ -11,9 +11,9 @@
   --text-main: #24343d;
   --text-soft: #5f6f78;
 
-  /* New Hero Variables */
-  --hero-cream: rgba(252, 248, 242, 0.9); /* soft elevated card */
-  --hero-dark-overlay: rgba(15, 25, 30, 0.55); /* anchor gradient */
+  /* Hero Variables */
+  --hero-cream: rgba(252, 248, 242, 0.9);
+  --hero-dark-overlay: rgba(15, 25, 30, 0.55);
 }
 
 html { scroll-behavior: smooth; }
@@ -65,9 +65,8 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; text-align: center; }
 .nav-zone.center { justify-content: center; }
 .nav-zone.right { justify-content: flex-end; gap:20px; z-index: 10001;}
 
-/* Logo - 1.5x larger logic */
 .nav-logo {
-  height: 80px; /* Desktop Size */
+  height: 80px; 
   width: auto;
   display: block;
   transition: transform 0.3s ease;
@@ -77,7 +76,6 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; text-align: center; }
   transform: scale(1.05);
 }
 
-/* Nav Link Styling */
 .nav-links {
   display: flex;
   gap: 10px;
@@ -95,18 +93,18 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; text-align: center; }
 }
 
 .nav-links a.active {
-  background-color: rgba(179, 139, 113, 0.1); /* Soft brown tint */
-  color: #B38B71; /* Main button brown */
+  background-color: rgba(179, 139, 113, 0.1);
+  color: #B38B71;
 }
 
 .nav-book, 
 .nav-book:visited, 
 .nav-book:link {
-  background-color: #B38B71; /* Matches .btn-primary */
+  background-color: #B38B71;
   color: #ffffff !important;
   padding: 10px 24px;
   border: none;
-  border-radius: 4px; /* Matches the sharper 4px radius of your main buttons */
+  border-radius: 4px;
   font-weight: 600;
   text-decoration: none;
   white-space: nowrap;
@@ -116,12 +114,11 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; text-align: center; }
 }
 
 .nav-book:hover {
-  background-color: #9f7860 !important; /* Matches .btn-primary:hover */
+  background-color: #9f7860 !important;
   transform: translateY(-1px);
   box-shadow: 0 4px 12px rgba(179, 139, 113, 0.2);
 }
 
-/* Hamburger */
 .hamburger {
   display: none;
   flex-direction: column;
@@ -129,8 +126,8 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; text-align: center; }
   background: none;
   border: none;
   gap: 6px;
-  position: relative; /* Necessary for z-index to work */
-  z-index: 10002; /* One step higher just to be safe */
+  position: relative;
+  z-index: 10002;
 }
 
 .bar {
@@ -148,9 +145,6 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; text-align: center; }
 /* ------------------------
    Hero & Layout
 ------------------------ */
-/* ------------------------
-   Hero & Layout
------------------------- */
 header {
   position: relative;
   height: 80vh;
@@ -158,17 +152,13 @@ header {
   display: flex;
   align-items: flex-end;
   color: #f7f2ed;
-  
-  /* Restrict Width to match other sections */
   max-width: 1100px; 
   margin: 0 auto;
-  overflow: hidden;    /* Keeps the pseudo-gradient inside the corners */
-  
+  overflow: hidden;    
   background: url('images/lilien-home.png') no-repeat center center/cover;
   z-index: 1;
 }
 
-/* Ensure the gradient overlay also respects the new width */
 header::after {
   content: "";
   position: absolute;
@@ -291,9 +281,6 @@ details[open] summary::after { transform: rotate(45deg); }
 }
 .testimonial-container::-webkit-scrollbar { display: none; }
 
-/* This centers the card but aligns the text inside it to the left */
-
-
 .testimonial-card {
   flex: 0 0 100%;
   scroll-snap-align: start;
@@ -304,20 +291,18 @@ details[open] summary::after { transform: rotate(45deg); }
   box-shadow: 0 10px 30px rgba(0,0,0,0.05);
 }
 
-/* This ensures the teal color and spacing look right with the new <div> structure */
 .quote {
   color: var(--primary);
-  line-height: 1.7; /* Increased for better readability of long stories */
+  line-height: 1.7;
   font-size: 1.1rem;
   margin-bottom: 1.2rem;
 }
 
-/* Specific styling for the bolded 'Hook' inside the full text */
 .full-text strong {
   display: block;
   margin-top: 15px;
   color: var(--primary);
-  border-left: 3px solid var(--primary); /* Optional: adds a nice vertical accent line */
+  border-left: 3px solid var(--primary);
   padding-left: 15px;
 }
 
@@ -374,157 +359,6 @@ input, textarea, select {
 .reveal.active { opacity: 1; transform: translateY(0); }
 
 /* ------------------------
-   Mobile Responsiveness
------------------------- */
-
-/* 1. Hide the mobile-only button on Desktop */
-.mobile-only-intake {
-  display: none;
-}
-
-/* 2. Media Query for Mobile (900px and down) */
-@media (max-width: 900px) {
-
-  header {
-    height: 75vh;
-    min-height: 520px;
-  }
-
-  .hero-content {
-    padding: 40px 6%;
-  }
-
-  .hero-content h1 {
-    font-size: 2.9rem;
-    font-weight: 700;
-    letter-spacing: -0.5px;
-  }
-
-  .hero-content p {
-    font-size: 1rem;
-  }
-
-  .btn-primary {
-    padding: 10px 22px;
-    font-size: 0.9rem;
-  }
-  
-  body { 
-    padding-top: 150px; 
-    padding-bottom: 100px; 
-  }
-
-  /* Hide the top-left button on mobile */
-  .desktop-only {
-    display: none !important;
-  }
-
-  /* Show and style the button inside the hamburger menu */
-  .mobile-only-intake {
-    display: block; 
-    background-color: #b38b71;
-    color: white !important;
-    padding: 15px 30px;
-    border-radius: 10px;
-    font-weight: 800;
-    text-align: center;
-    margin-bottom: 30px; 
-    width: 80%; 
-  }
-
-  .nav-logo {
-    height: 75px; 
-  }
-
-  .hamburger { display: flex; }
-
-  .nav-links {
-    /* Change display: none to visibility/opacity */
-    display: flex; 
-    visibility: hidden;
-    opacity: 0;
-    
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: white;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    z-index: 10000;
-    transition: all 0.4s ease;
-  }
-
-  .nav-links.show {
-    visibility: visible;
-    opacity: 1;
-  }
-
-  /* When the menu is visible, move links to center */
-  .nav-links.show a {
-    transform: translateX(0);
-    opacity: 1;
-  }
-
-  /* Staggered animation delays */
-  .nav-links.show a:nth-child(1) { transition-delay: 0.1s; }
-  .nav-links.show a:nth-child(2) { transition-delay: 0.2s; }
-  .nav-links.show a:nth-child(3) { transition-delay: 0.3s; }
-  .nav-links.show a:nth-child(4) { transition-delay: 0.4s; }
-  .nav-links.show a:nth-child(5) { transition-delay: 0.5s; }
-  /* Add more if you have more menu items */
-
-/* Inside the @media (max-width: 900px) block */
-  .nav-links a { 
-    font-size: 1.3rem; 
-    margin: 15px 0; 
-    display: block;
-    
-    /* STARTING POSITION: Off-screen and invisible */
-    transform: translateX(100px); 
-    opacity: 0;
-    
-    /* ANIMATION SPEED: 0.8s makes it very easy to see */
-    transition: transform 0.8s cubic-bezier(0.2, 1, 0.3, 1), 
-                opacity 0.8s ease;
-  }
-
-  /* The standard layout stuff that follows */
-  .form-row { grid-template-columns: 1fr; }
-  header h1 { font-size: 2.2rem; }
-  body.menu-open { overflow: hidden; }
-}
-
-/* --- Button Loading Effect --- */
-  .btn-primary, .nav-book, .mobile-only-intake {
-    position: relative;
-    overflow: hidden; 
-  }
-
-  .btn-primary::after, .nav-book::after, .mobile-only-intake::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%; 
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-    transition: none;
-  }
-
-  .btn-loading::after {
-    left: 100%; 
-    transition: left 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  .btn-loading {
-    filter: brightness(0.95);
-    transform: scale(0.98);
-  }
-
-/* ------------------------
    Connect Section Split Layout
 ------------------------ */
 .connect-split {
@@ -565,58 +399,142 @@ input, textarea, select {
   margin-top: 25px;
 }
 
-/* Unified Mobile Adjustments for Connect */
-@media (max-width: 900px) {
-  .connect-split {
-    gap: 25px;
-    flex-direction: column; 
-  }
-  
-  .connect-image {
-    min-width: 100%;
-  }
-
-.connect-image img {
-  max-height: none; 
-  object-fit: contain; 
-}
-
-  .connect-info h2, 
-  .connect-info p {
-    text-align: center;
-  }
-  
-  .connect-cta-group {
-    justify-content: center;
-  }
-}
-
 /* ------------------------
    Tree of Life Watermark
 ------------------------ */
 .tree-watermark {
   position: relative;
-  overflow: hidden; /* Keeps the tree inside the section */
+  overflow: hidden; 
 }
 
 .tree-watermark::before {
   content: "";
   position: absolute;
-  top: 27%;
-  right: -25%;
+  bottom: 5%;   
+  right: -15%;    
   width: 700px;
   height: 700px;
-  /* You will need a 'tree_final.png' or SVG in your images folder */
   background-image: url('images/tree_final.png'); 
   background-size: contain;
   background-repeat: no-repeat;
-  opacity: 0.50; /* Extremely subtle—just a hint of a texture */
+  opacity: 0.45;  
   z-index: 0;
-  pointer-events: none; /* User can click through it */
+  pointer-events: none; 
 }
 
-/* Adjusting the section content to sit above the tree */
 .tree-watermark > div {
   position: relative;
   z-index: 1;
+}
+
+/* ------------------------
+   Button Effects
+------------------------ */
+.btn-primary, .nav-book, .mobile-only-intake {
+  position: relative;
+  overflow: hidden; 
+}
+
+.btn-primary::after, .nav-book::after, .mobile-only-intake::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%; 
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  transition: none;
+}
+
+.btn-loading::after {
+  left: 100%; 
+  transition: left 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-loading {
+  filter: brightness(0.95);
+  transform: scale(0.98);
+}
+
+/* ------------------------
+   Unified Mobile Responsiveness (900px and down)
+------------------------ */
+@media (max-width: 900px) {
+
+  /* Hero Mobile */
+  header {
+    height: 75vh;
+    min-height: 520px;
+  }
+  .hero-content { padding: 40px 6%; }
+  .hero-content h1 { font-size: 2.2rem; font-weight: 700; letter-spacing: -0.5px; }
+  .hero-content p { font-size: 1rem; }
+  .btn-primary { padding: 10px 22px; font-size: 0.9rem; }
+  
+  body { 
+    padding-top: 150px; 
+    padding-bottom: 100px; 
+  }
+
+  /* Nav Mobile */
+  .desktop-only { display: none !important; }
+  .mobile-only-intake {
+    display: block; 
+    background-color: #b38b71;
+    color: white !important;
+    padding: 15px 30px;
+    border-radius: 10px;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 30px; 
+    width: 80%; 
+  }
+  .nav-logo { height: 75px; }
+  .hamburger { display: flex; }
+  .nav-links {
+    display: flex; 
+    visibility: hidden;
+    opacity: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: white;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    transition: all 0.4s ease;
+  }
+  .nav-links.show { visibility: visible; opacity: 1; }
+  .nav-links.show a { transform: translateX(0); opacity: 1; }
+  .nav-links a { 
+    font-size: 1.3rem; 
+    margin: 15px 0; 
+    display: block;
+    transform: translateX(100px); 
+    opacity: 0;
+    transition: transform 0.8s cubic-bezier(0.2, 1, 0.3, 1), opacity 0.8s ease;
+  }
+
+  /* Forms/Layout Mobile */
+  .form-row { grid-template-columns: 1fr; }
+  body.menu-open { overflow: hidden; }
+
+  /* Connect Mobile */
+  .connect-split { gap: 25px; flex-direction: column; }
+  .connect-image { min-width: 100%; }
+  .connect-image img { max-height: none; object-fit: contain; }
+  .connect-info h2, .connect-info p { text-align: center; }
+  .connect-cta-group { justify-content: center; }
+
+  /* Tree Mobile */
+  .tree-watermark::before {
+    width: 500px;
+    height: 500;
+    right: -25%; 
+    bottom: 2%;
+    opacity: 0.40;
+  }
 }
