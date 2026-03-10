@@ -573,22 +573,28 @@ document.querySelectorAll('.btn-primary, .nav-book, .mobile-only-intake').forEac
 </script>
 
 <script>
-// --- Modal Logic ---
+// --- Updated Modal Logic ---
 const modal = document.getElementById("inquiryModal");
 const closeModal = document.querySelector(".close-modal");
 
-// 1. Open Modal: Find all buttons that should trigger the inquiry
-// This targets the specific "General Inquiry" buttons
-document.querySelectorAll('a[href="#connect"].nav-book, #btnInquiry').forEach(btn => {
+// Target ALL buttons with the 'btn-ghost-brown' class that link to #connect
+document.querySelectorAll('a[href="#connect"].btn-ghost-brown').forEach(btn => {
   btn.addEventListener('click', (e) => {
-    // If it's a "General Inquiry" button, show the modal instead of scrolling
-    if (btn.innerText.toLowerCase().includes('inquiry')) {
-      e.preventDefault();
-      modal.style.display = "flex";
-      document.body.style.overflow = "hidden"; // Prevent background scroll
-    }
+    e.preventDefault();
+    modal.style.display = "flex";
+    document.body.style.overflow = "hidden"; 
   });
 });
+
+// Also keep the specific ID just in case, though the class above covers it
+const inquiryBtn = document.getElementById("btnInquiry");
+if (inquiryBtn) {
+  inquiryBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    modal.style.display = "flex";
+    document.body.style.overflow = "hidden";
+  });
+}
 
 // 2. Close Modal: Click the 'X'
 closeModal.addEventListener('click', () => {
