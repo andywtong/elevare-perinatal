@@ -642,3 +642,74 @@ input, textarea, select {
 }
 
 .form-group { margin-bottom: 15px; }
+
+/* --- The "Magnet" (Solid Brown) --- */
+.btn-solid-brown {
+  display: inline-block;
+  padding: 12px 28px;
+  background-color: #B38B71; /* Your Brown */
+  color: #ffffff !important;
+  border: 2px solid #B38B71;
+  border-radius: 4px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.btn-solid-brown:hover {
+  background-color: #A07A60; /* Slightly darker brown */
+  border-color: #A07A60;
+  transform: translateY(-1px);
+}
+
+/* --- The "Secondary" (Ghost Brown) --- */
+.btn-ghost-brown {
+  display: inline-block;
+  padding: 12px 28px;
+  background-color: transparent;
+  color: #B38B71 !important; /* Brown text */
+  border: 2px solid #B38B71; /* Brown outline */
+  border-radius: 4px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.btn-ghost-brown:hover {
+  background-color: #B38B71;
+  color: #ffffff !important; /* Flips to white on hover */
+}
+
+.nav-link-simple {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.9rem;
+  color: #B38B71; /* Your Brown */
+  text-decoration: none;
+  margin-right: 20px;
+  font-weight: 600;
+  transition: opacity 0.3s ease;
+}
+
+.nav-link-simple:hover {
+  opacity: 0.7;
+  text-decoration: underline;
+}
+
+/* Update your existing footer-content or add this override */
+.footer-split {
+  display: flex;
+  justify-content: center;
+  gap: 10px; /* Space between buttons */
+  align-items: center;
+}
+
+.footer-split .btn-solid-brown, 
+.footer-split .btn-ghost-brown {
+  flex: 1; /* Makes them equal width */
+  text-align: center;
+  padding: 12px 5px; /* Tighter padding for mobile */
+  font-size: 0.85rem; /* Small font ensures no wrapping */
+  white-space: nowrap; /* Keeps text on one line */
+}
