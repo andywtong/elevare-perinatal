@@ -667,7 +667,9 @@ input, textarea, select {
 .btn-ghost-brown {
   display: inline-block;
   padding: 12px 28px;
-  background-color: transparent;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  
+  background-color: transparent; 
   color: #B38B71 !important; /* Brown text */
   border: 2px solid #B38B71; /* Brown outline */
   border-radius: 4px;
