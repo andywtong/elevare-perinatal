@@ -566,7 +566,7 @@ input, textarea, select {
   font-family: 'Playfair Display', serif;
   font-weight: 700;
   color: var(--text-main);
-  font-size: 1.25rem;
+  font-size: 1.0rem;
   letter-spacing: 0.3px;
 }
 
