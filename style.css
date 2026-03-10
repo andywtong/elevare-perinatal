@@ -574,3 +574,56 @@ input, textarea, select {
 @media (max-width: 600px) {
   .footer-content span { display: none; } /* Just show the button on mobile */
 }
+
+.btn-secondary {
+  display: inline-block;
+  padding: 12px 28px;
+  background-color: transparent;
+  color: var(--primary); /* Using your Teal variable */
+  border: 2px solid var(--primary);
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: 700;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.btn-secondary:hover {
+  background-color: var(--primary);
+  color: white;
+  transform: translateY(-1px);
+}
+
+// --- Refined Modal Logic ---
+const modal = document.getElementById("inquiryModal");
+const closeModal = document.querySelector(".close-modal");
+
+// This finds EVERY <a> or <button> tag on the page
+document.querySelectorAll('a, button').forEach(el => {
+  const text = el.innerText.toLowerCase();
+  
+  // If the button says "inquiry", make it open the modal
+  if (text.includes('inquiry')) {
+    el.addEventListener('click', (e) => {
+      e.preventDefault();
+      modal.style.display = "flex";
+      document.body.style.overflow = "hidden";
+    });
+  }
+});
+
+// Close when clicking 'X'
+closeModal.addEventListener('click', () => {
+  modal.style.display = "none";
+  document.body.style.overflow = "auto";
+});
+
+// Close when clicking outside the box
+window.addEventListener('click', (event) => {
+  if (event.target == modal) {
+    modal.style.display = "none";
+    document.body.style.overflow = "auto";
+  }
+});
+
+.form-group { margin-bottom: 15px; }

@@ -520,7 +520,73 @@ document.querySelectorAll('.btn-primary, .nav-book, .mobile-only-intake').forEac
     }
   });
 });
+
+// --- Modal Logic ---
+const modal = document.getElementById("inquiryModal");
+const closeModal = document.querySelector(".close-modal");
+
+// 1. Open Modal: Find all buttons that should trigger the inquiry
+// This targets the specific "General Inquiry" buttons
+document.querySelectorAll('a[href="#connect"].nav-book, #btnInquiry').forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    // If it's a "General Inquiry" button, show the modal instead of scrolling
+    if (btn.innerText.toLowerCase().includes('inquiry')) {
+      e.preventDefault();
+      modal.style.display = "flex";
+      document.body.style.overflow = "hidden"; // Prevent background scroll
+    }
+  });
+});
+
+// 2. Close Modal: Click the 'X'
+closeModal.addEventListener('click', () => {
+  modal.style.display = "none";
+  document.body.style.overflow = "auto";
+});
+
+// 3. Close Modal: Click outside the box
+window.addEventListener('click', (event) => {
+  if (event.target == modal) {
+    modal.style.display = "none";
+    document.body.style.overflow = "auto";
+  }
+});
+
 </script>
+
+<div id="inquiryModal" class="modal">
+  <div class="modal-content">
+    <span class="close-modal">&times;</span>
+    <h2>General Inquiry</h2>
+    <p>Have a question? We'll get back to you within 24 hours.</p>
+    
+    <form action="https://formspree.io/f/mojnngaz" method="POST">
+      <div class="form-group">
+        <input type="text" name="name" placeholder="Full Name" required>
+      </div>
+      <div class="form-group">
+        <input type="email" name="email" placeholder="Email Address" required>
+      </div>
+      <div class="form-group">
+        <input type="text" name="due-date" placeholder="Estimated Due Date (if applicable)">
+      </div>
+      <div class="form-group">
+        <select name="service">
+          <option value="" disabled selected>Service of Interest</option>
+          <option value="prenatal">Prenatal Care</option>
+          <option value="birth">Labor & Birth Support</option>
+          <option value="postpartum">Postpartum & Newborn Care</option>
+          <option value="other">General Question</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <textarea name="message" placeholder="How can we help?" rows="4"></textarea>
+      </div>
+      <button type="submit" class="btn-primary" style="width:100%">Send Message</button>
+    </form>
+  </div>
+</div>
+
 <div class="sticky-footer">
     <div class="footer-content">
       <a href="https://elevareperinatal.janeapp.com" target="_blank" class="btn-primary">New Client Intake</a>
