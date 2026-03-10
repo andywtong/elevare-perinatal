@@ -292,6 +292,10 @@
 
       <div class="connect-info">
         <h2>Connect With Us</h2>
+        <div class="connect-cta-group">
+          <a href="#connect" class="btn-primary" id="btnInquiry">General Inquiry</a>
+          <a href="https://elevareperinatal.janeapp.com" target="_blank" class="btn-primary">New Client Intake</a>
+        </div>
         <p>
           We believe every family deserves a steady, expert presence during the transition to parenthood. Whether you have questions about our nursing packages or you're ready to secure your dates, we'd love to hear from you.
         </p>
@@ -310,33 +314,43 @@
 <div id="inquiryModal" class="modal">
   <div class="modal-content">
     <span class="close-modal">&times;</span>
-    <h2>General Inquiry</h2>
-    <p>Have a question? We'll get back to you within 24 hours.</p>
     
-    <form action="https://formspree.io/f/mojnngaz" method="POST">
-      <div class="form-group">
-        <input type="text" name="name" placeholder="Full Name" required>
-      </div>
-      <div class="form-group">
-        <input type="email" name="email" placeholder="Email Address" required>
-      </div>
-      <div class="form-group">
-        <input type="text" name="due-date" placeholder="Estimated Due Date (if applicable)">
-      </div>
-      <div class="form-group">
-        <select name="service">
-          <option value="" disabled selected>Service of Interest</option>
-          <option value="prenatal">Prenatal Care</option>
-          <option value="birth">Labor & Birth Support</option>
-          <option value="postpartum">Postpartum & Newborn Care</option>
-          <option value="other">General Question</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <textarea name="message" placeholder="How can we help?" rows="4"></textarea>
-      </div>
-      <button type="submit" class="btn-primary" style="width:100%">Send Message</button>
-    </form>
+    <div id="form-container">
+      <h2>General Inquiry</h2>
+      <p>Have a question? We'll get back to you within 24 hours.</p>
+      
+      <form id="ajax-form" action="https://formspree.io/f/mojnngaz" method="POST">
+        <div class="form-group">
+          <input type="text" name="name" placeholder="Full Name" required>
+        </div>
+        <div class="form-group">
+          <input type="email" name="email" placeholder="Email Address" required>
+        </div>
+        <div class="form-group">
+          <input type="text" name="due-date" placeholder="Estimated Due Date (if applicable)">
+        </div>
+        <div class="form-group">
+          <select name="service">
+            <option value="" disabled selected>Service of Interest</option>
+            <option value="prenatal">Prenatal Care</option>
+            <option value="birth">Labor & Birth Support</option>
+            <option value="postpartum">Postpartum & Newborn Care</option>
+            <option value="other">General Question</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <textarea name="message" placeholder="How can we help?" rows="4"></textarea>
+        </div>
+        <button type="submit" id="submit-btn" class="btn-primary" style="width:100%">Send Message</button>
+      </form>
+    </div>
+
+    <div id="success-message" style="display: none; text-align: center; padding: 40px 0;">
+      <h2 style="color: var(--primary);">Thank You!</h2>
+      <p>Your message has been sent successfully. We look forward to connecting with you soon.</p>
+      <button class="btn-primary" onclick="location.reload()">Close</button>
+    </div>
+
   </div>
 </div>
 
@@ -400,7 +414,6 @@
 
   // Intake form submission via Formspree
   const intakeForm = document.getElementById('intakeForm');
-  const submitBtn = document.getElementById('submitBtn');
   const formStatus = document.getElementById('formStatus');
 
   // Endpoint configured by user
@@ -588,6 +601,49 @@ window.addEventListener('click', (event) => {
     document.body.style.overflow = "auto";
   }
 });
+
+// --- AJAX Form Submission Logic ---
+const form = document.getElementById("ajax-form");
+const formContainer = document.getElementById("form-container");
+const successMessage = document.getElementById("success-message");
+const submitBtn = document.getElementById("submit-btn");
+
+if (form) {
+  form.addEventListener("submit", async function(e) {
+    e.preventDefault(); // Stop the page from redirecting to Formspree
+    
+    // Provide immediate feedback to the user
+    submitBtn.innerText = "Sending...";
+    submitBtn.disabled = true;
+
+    // Package the form data
+    const data = new FormData(form);
+    
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (response.ok) {
+        // SUCCESS: Hide the form and show the thank you message
+        formContainer.style.display = "none";
+        successMessage.style.display = "block";
+      } else {
+        // ERROR: If Formspree returns an error
+        alert("Oops! There was a problem submitting your form. Please try again.");
+        submitBtn.disabled = false;
+        submitBtn.innerText = "Send Message";
+      }
+    } catch (error) {
+      // NETWORK ERROR: e.g. no internet connection
+      alert("Network error. Please check your connection and try again.");
+      submitBtn.disabled = false;
+      submitBtn.innerText = "Send Message";
+    }
+  });
+}
 
 </script>
 
