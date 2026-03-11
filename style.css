@@ -715,3 +715,24 @@ input, textarea, select {
   font-size: 0.85rem; /* Small font ensures no wrapping */
   white-space: nowrap; /* Keeps text on one line */
 }
+
+.custom-shape-divider-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 60px; /* Adjust this to make the wave taller or shorter */
+}
+
+.custom-shape-divider-bottom .shape-fill {
+    fill: #Fafafa; /* Matches the Services section background */
+}
