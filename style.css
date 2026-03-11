@@ -216,7 +216,9 @@ section { padding: 45px 20px; }
 .alt-bg { background-color: var(--bg-alt); }
 .narrow-content { max-width: 700px; margin: 0 auto; }
 .wide-content { max-width: 1100px; margin: 0 auto; }
-
+#about.alt-bg { 
+  padding-bottom: 160px; 
+}
 /* ------------------------
    Services
 ------------------------ */
@@ -716,23 +718,27 @@ input, textarea, select {
   white-space: nowrap; /* Keeps text on one line */
 }
 
+/* 1. Lift the text and button above the waves */
+.narrow-content {
+    position: relative; /* This "activates" the z-index */
+    z-index: 10;        /* Higher than the wave's 5 */
+}
+
+/* 2. Your current wave CSS with one vital addition */
 .custom-shape-divider-bottom {
     position: absolute;
-    bottom: 0;
+    bottom: -2px;
     left: 0;
     width: 100%;
     overflow: hidden;
     line-height: 0;
-    transform: rotate(180deg);
+    z-index: 5; 
+    pointer-events: none; /* Add this so the wave doesn't "block" the button click */
 }
 
 .custom-shape-divider-bottom svg {
     position: relative;
     display: block;
     width: calc(100% + 1.3px);
-    height: 60px; /* Adjust this to make the wave taller or shorter */
-}
-
-.custom-shape-divider-bottom .shape-fill {
-    fill: #Fafafa; /* Matches the Services section background */
+    height: 250px; 
 }
