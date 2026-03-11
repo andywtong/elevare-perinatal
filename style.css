@@ -270,27 +270,39 @@ details[open] summary::after { transform: rotate(45deg); }
 .service-list li::before { content: "•"; color: var(--primary); font-weight: bold; display: inline-block; width: 1em; margin-left: -1em; }
 
 /* ------------------------
-   Testimonials
+   Testimonials: 3D Stage
 ------------------------ */
-.testimonial-wrapper { position: relative; display: flex; align-items: center; }
 .testimonial-container {
   display: flex;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
-  gap: 0;
-  padding: 20px 0;
+  gap: 20px; 
+  padding: 60px 0;
   scrollbar-width: none;
+  /* Increased scroll-padding helps the browser snap to the true center */
+  scroll-padding: 0 15%; 
 }
-.testimonial-container::-webkit-scrollbar { display: none; }
 
 .testimonial-card {
-  flex: 0 0 100%;
-  scroll-snap-align: start;
+  flex: 0 0 70% !important; /* Shrinking to 70% opens up the 'wings' */
+  scroll-snap-align: center;
   text-align: left;
   background: white;
   padding: 60px 40px;
   border-radius: 20px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+
+  /* The "Waiting" State - Keeping them dim and small */
+  transition: transform 0.6s cubic-bezier(0.2, 1, 0.3, 1), opacity 0.6s ease;
+  opacity: 0.25; /* Made slightly more transparent to emphasize the center */
+  transform: scale(0.85); /* Slightly smaller to create 3D depth */
+}
+
+.testimonial-card.active {
+  opacity: 1;
+  transform: scale(1); /* Returns to full size when in center */
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+  z-index: 5;
 }
 
 .quote {

@@ -485,25 +485,28 @@
   const container = document.querySelector('.testimonial-container');
   const cards = document.querySelectorAll('.testimonial-card');
 
-  function currentSlide(direction) {
-    const scrollAmount = container.offsetWidth;
-    const isAtEnd = container.scrollLeft + container.offsetWidth >= container.scrollWidth - 10;
-    const isAtStart = container.scrollLeft <= 10;
+function currentSlide(direction) {
+  // Find the width of one card + the gap
+  const card = document.querySelector('.testimonial-card');
+  const gap = 20;
+  const scrollStep = card.offsetWidth + gap;
 
-    if (direction === 'next') {
-      if (isAtEnd) {
-        container.scrollTo({ left: 0, behavior: 'smooth' });
-      } else {
-        container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-      }
+  if (direction === 'next') {
+    // Check if we are at the very end
+    if (container.scrollLeft + container.offsetWidth >= container.scrollWidth - 50) {
+      container.scrollTo({ left: 0, behavior: 'smooth' });
     } else {
-      if (isAtStart) {
-        container.scrollTo({ left: container.scrollWidth, behavior: 'smooth' });
-      } else {
-        container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-      }
+      container.scrollBy({ left: scrollStep, behavior: 'smooth' });
+    }
+  } else {
+    // Check if we are at the very start
+    if (container.scrollLeft <= 50) {
+      container.scrollTo({ left: container.scrollWidth, behavior: 'smooth' });
+    } else {
+      container.scrollBy({ left: -scrollStep, behavior: 'smooth' });
     }
   }
+}
   function toggleText(btn) {
   // Find the container (the .quote div)
   const container = btn.previousElementSibling;
@@ -545,19 +548,20 @@ revealSections();
 
 // Listen for when the testimonial container stops scrolling
 container.addEventListener('scroll', () => {
-  // Clear any previous timer
   clearTimeout(container.scrollTimeout);
   
-  // Set a timer to run once scrolling stops (200ms)
   container.scrollTimeout = setTimeout(() => {
-    // Find all 'full-text' spans and hide them
-    document.querySelectorAll('.full-text').forEach(span => {
-      span.style.display = "none";
-    });
+    // 1. Find all cards and reset their text visibility
+    document.querySelectorAll('.testimonial-card').forEach(card => {
+      const preview = card.querySelector('.preview-text');
+      const full = card.querySelector('.full-text');
+      const btn = card.querySelector('.read-more-btn');
 
-    // Find all 'Read More' buttons and reset their text
-    document.querySelectorAll('.read-more-btn').forEach(btn => {
-      btn.innerText = "Read More";
+      if (full && preview && btn) {
+        full.style.display = "none";     // Hide the long version
+        preview.style.display = "inline"; // Show the original quote
+        btn.innerText = "Read More";      // Reset the button text
+      }
     });
   }, 200);
 });
@@ -661,6 +665,30 @@ if (form) {
   });
 }
 
+</script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const container = document.querySelector('.testimonial-container');
+    const cards = document.querySelectorAll('.testimonial-card');
+
+    const observerOptions = {
+      root: container,
+      threshold: 0.6 
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // Add active class only to the card in view
+          cards.forEach(card => card.classList.remove('active'));
+          entry.target.classList.add('active');
+        }
+      });
+    }, observerOptions);
+
+    cards.forEach(card => observer.observe(card));
+  });
 </script>
 
 </body>
