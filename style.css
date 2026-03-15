@@ -142,6 +142,11 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; text-align: center; }
 .hamburger.active .bar:nth-child(2) { opacity: 0; }
 .hamburger.active .bar:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
 
+/* Offsets the scroll position to account for the fixed nav bar */
+section[id] {
+  scroll-margin-top: 160px; /* Adjust this to match your nav height + some breathing room */
+}
+
 /* ------------------------
    Hero & Layout
 ------------------------ */
@@ -741,4 +746,98 @@ input, textarea, select {
     display: block;
     width: calc(100% + 1.3px);
     height: 250px; 
+}
+
+/* Accreditation Logo Section */
+.trust-bar {
+    background-color: #fafafa;
+    padding: 60px 20px 60px 20px; /* Space above and below the logos */
+    border-top: 1px solid #eeeeee; /* Optional: subtle line to separate from content */
+}
+
+.logo-container {
+    display: flex;
+    justify-content: center; /* Centers the row */
+    align-items: center;     /* Aligns logos of different heights perfectly */
+    gap: 50px;              /* Consistent space between logos */
+    flex-wrap: wrap;         /* Allows logos to stack on mobile screens */
+    max-width: 1000px;
+    margin: 0 auto;          /* Centers the container itself */
+}
+
+.trust-logo {
+    height: 60px;           /* Controls the uniform size of the logos */
+    width: auto;            /* Keeps the logo proportions correct */
+    opacity: 0.8;           /* Makes them look more subtle/professional */
+    transition: opacity 0.3s ease;
+}
+
+.trust-logo:hover {
+    opacity: 1;             /* Pops back to full color/clarity on hover */
+}
+
+/* Main Footer Styling */
+.main-footer {
+    background-color: #b38b71; /* Replace this with your specific brown hex code */
+    color: #ffffff;
+    padding: 60px 20px 140px 20px;
+    text-align: center;
+    
+}
+
+.footer-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.footer-brand {
+    height: 80px; /* This scales your 1000px image down safely */
+    width: auto;
+}
+
+.footer-contact h3 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.footer-link {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.1rem;
+    line-height: 2; /* Makes links easier to tap on mobile */
+    transition: opacity 0.3s ease;
+}
+
+.footer-link:hover {
+    opacity: 0.8;
+    text-decoration: underline;
+}
+.footer-btn {
+    display: inline-flex;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.05); /* Very subtle soft background */
+    border: 1px solid rgba(255, 255, 255, 0.2);  /* Soft border */
+    padding: 10px 20px;
+    border-radius: 50px;                         /* Makes it a pill shape */
+    color: #ffffff;
+    text-decoration: none;
+    margin: 10px;
+    transition: all 0.3s ease;
+    gap: 10px;                                   /* Space between icon and text */
+}
+
+.footer-btn:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);                 /* Tiny "lift" effect when hovering */
+}
+
+.footer-btn i {
+    font-size: 1.2rem;
+    color: #e0d7d5;                              /* Softer off-white for the icon */
 }
