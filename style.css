@@ -841,3 +841,17 @@ input, textarea, select {
     font-size: 1.2rem;
     color: #e0d7d5;                              /* Softer off-white for the icon */
 }
+
+/* Ensures icons in the connect section have a little breathing room from the text */
+.connect-cta-group .fa-brands {
+    margin-right: 8px;
+    font-size: 1.1rem;
+}
+
+/* Optional: Group footer socials in their own row */
+.social-icons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
