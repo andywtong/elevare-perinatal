@@ -762,7 +762,7 @@ input, textarea, select {
     gap: 50px;              /* Consistent space between logos */
     flex-wrap: wrap;         /* Allows logos to stack on mobile screens */
     max-width: 1000px;
-    margin: 0 auto;          /* Centers the container itself */
+    margin: 60px auto 0;          /* Centers the container itself */
 }
 
 .trust-logo {
