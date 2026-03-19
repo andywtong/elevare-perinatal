@@ -855,3 +855,54 @@ input, textarea, select {
     flex-wrap: wrap;
     margin-top: 10px;
 }
+
+#community.alt-bg {
+    background-color: var(--bg-alt); /* Matches your light teal/mint background */
+    padding: 80px 20px;
+}
+
+.partnership-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.partner-card {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+    border-left: 4px solid #B38B71; /* Accent border using your brand brown */
+    text-align: left;
+}
+
+/* Subtitle styling */
+.section-subtitle {
+    display: block;
+    text-align: center;
+    font-family: 'Lato', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.8rem;
+    color: #B38B71; /* Your brand brown */
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+/* Centering the CTA button */
+.community-cta {
+    text-align: center;
+    margin-top: 50px;
+}
+
+/* Making the cards look slightly more like "In-Progress" invitations */
+.partner-card h3 {
+    color: #B38B71;
+    font-family: 'Playfair Display', serif;
+}
+
+.partner-card p {
+    font-style: italic;
+    color: var(--text-soft);
+}
